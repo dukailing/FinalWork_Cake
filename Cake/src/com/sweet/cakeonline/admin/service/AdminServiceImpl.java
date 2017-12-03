@@ -15,6 +15,7 @@ public class AdminServiceImpl {
 	private AdminDaoImpl adminDaoImpl;
 	//查找管理员
 	public List<Admin> listAdmin(){
+
 	return adminDaoImpl.findAll();
 	}
 }

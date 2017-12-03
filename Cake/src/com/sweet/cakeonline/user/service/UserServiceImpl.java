@@ -37,4 +37,8 @@ public class UserServiceImpl {
 	public List<Users> listUser(){
 	return userDaoImpl.findAll();
 	}
+	//通过id查找用户
+	public Users findUserById(int id) {
+		return this.userDaoImpl.findById(id);
+	}
 }

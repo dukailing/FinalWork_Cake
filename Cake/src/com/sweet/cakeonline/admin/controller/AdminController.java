@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -37,10 +38,25 @@ public class AdminController {
 	//管理员登录并进入管理页面
 	@RequestMapping("/adminLogin")
 	public String login(@RequestParam("username") String loginName,
+			//HttpServletRequest request,
 			@RequestParam("password") String password,
 			Model model, HttpSession session,HttpServletResponse response) throws IOException{
 	//	Users user=this.userServiceImpl.login(loginName, password);
+		//String name=(String) request.getAttribute("name");
 		List<Admin> adminList=this.adminServiceImpl.listAdmin();
+		
+		//分页
+//		int pageCount=this.cakeServiceImpl.getPageCount();
+	     int pageCount=2;
+		 session.setAttribute("pageCount",pageCount);
+		int pageIndex=1;
+		 session.setAttribute("pageIndex",pageIndex);
+		 if(0==pageIndex|| pageIndex<0) {
+			 session.setAttribute("pageIndex",1);
+			 
+		 }else {
+			 session.setAttribute("pageIndex",pageIndex);
+			 	}
 		//到集合中查找用户是否存在，此处用来模拟数据库验证  
         for(Admin admin:adminList){  
             if(admin.getAname().equals(loginName) && admin.getPassword().equals(password)){  
@@ -50,11 +66,12 @@ public class AdminController {
         		model.addAttribute("userlist", list);
         		
         		//查找所有订单
-        		List<Orders> orderlist=this.orderServiceImpl.listAll();
+        		List<Orders> orderlist=this.orderServiceImpl.listAllOrders(1);
+        		session.setAttribute("aopageIndex", 1);
         		model.addAttribute("orderlist", orderlist);
-        		
+ 
         		//查找所有蛋糕
-        		List<Cake> cakelist=this.cakeServiceImpl.listAll();
+        		List<Cake> cakelist=this.cakeServiceImpl.listAll(1);
         		model.addAttribute("cakelist", cakelist);
         		//response.sendRedirect("adminOrders");
                return "adminOrders";  

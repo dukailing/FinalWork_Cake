@@ -43,7 +43,7 @@
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
+						<li><a href="/Cake/index.jsp" class="active">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Birthday<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-4">
@@ -294,7 +294,7 @@
 	<div class="account">
 		<div class="container">
 			<div class="register register-but">
-				<form action="user/userLogin" method="post"> 
+				<form action="user/userLogin" > 
 					<div class="register-top-grid register-bottom-grid">
 						<h3>Welcome TO Login </h3>
 						<div class="input">

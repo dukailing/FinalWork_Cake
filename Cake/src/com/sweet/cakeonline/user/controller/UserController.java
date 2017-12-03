@@ -1,8 +1,10 @@
 package com.sweet.cakeonline.user.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -22,34 +24,42 @@ public class UserController {
 	private UserServiceImpl userServiceImpl;
 	
 	@RequestMapping("/userLogin")
-	public String login(@RequestParam("username") String loginName,
+	public void login(@RequestParam("username") String loginName,
 			@RequestParam("password") String password,
-			Model model, HttpSession session){
+			 HttpSession session,HttpServletResponse response) throws IOException{
 	//	Users user=this.userServiceImpl.login(loginName, password);
 		List<Users> userList=this.userServiceImpl.listUser();
 		//到集合中查找用户是否存在，此处用来模拟数据库验证  
         for(Users user:userList){  
             if(user.getName().equals(loginName) && user.getPassword().equals(password)){  
-                model.addAttribute("user", user);  
-                return "index";  
-            }  
-        }  
-//        return "loginForm";  
-//    }  
-//		if(user!=null){
-//			session.setAttribute("user", user);
-//			return "index";
-//		}else{
-//			model.addAttribute("errorinfo", "您的账号密码不正确！");
-			return "userLogin";
+                session.setAttribute("user", user);  
+                session.setAttribute("userid", user.getId());
+                session.setAttribute("isLogin", "true");
+//                response.sendRedirect("/Cake/index.jsp");
+                break;
+            }else {
+            	session.setAttribute("isLogin", "false");
+            }
+            
+        }
+        if(session.getAttribute("isLogin").equals("true")) {
+        	  response.sendRedirect("/Cake/index.jsp");
+        }else {
+        	response.sendRedirect("/Cake/userLogin.jsp");
+        }
+            
+            //	 response.sendRedirect("/Cake/userLogin.jsp");
+
+            
+
 	}
 	
 	//用户注册
 	@RequestMapping("/userRegist")
-	public String regist(@RequestParam("username") String loginName,
+	public void regist(@RequestParam("username") String loginName,
 			@RequestParam("password") String password,@RequestParam("confirmpassword") String confirmpassword,
 			@RequestParam("address") String address,@RequestParam("email") String email,
-			Model model, HttpSession session) {
+			 HttpSession session,HttpServletResponse response) throws IOException {
 		if(password.equals(confirmpassword) ) {
 		Users u=new Users();
 		u.setAddress(address);
@@ -57,18 +67,22 @@ public class UserController {
 		u.setName(loginName);
 		u.setPassword(password);
 		this.userServiceImpl.addUser(u);
-		model.addAttribute("user", u);
-		return "userLogin";
+		session.setAttribute("userRegist", u);
+		response.sendRedirect("/Cake/userLogin.jsp");;
 		}else {
-			return "userRegist";
+			response.sendRedirect("/Cake/userRegist.jsp");
 		}
 	}
-	
+	//未用未知修改
 	@RequestMapping("/list")
-	public String list(Model model){
+	public void list(HttpSession session,HttpServletResponse response) throws IOException{
 		List<Users> userList=this.userServiceImpl.listUser();
-		model.addAttribute("userList", userList);
-		return "list";
+		session.setAttribute("userList", userList);
+		response.sendRedirect("");
+	}
+	@RequestMapping("/findByIdList")
+	public Users findById(@RequestParam("userid")String id,HttpServletResponse response) {
+		return this.userServiceImpl.findUserById(Integer.parseInt(id));
 	}
 	
 }

@@ -54,7 +54,7 @@
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
+						<li><a href="/Cake/index.jsp" class="active">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Birthday<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-4">
@@ -268,25 +268,25 @@
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 					<div id="loginBox">                
-						<form id="loginForm">
+						<form id="loginForm" action="user/userLogin">
 							<fieldset id="body">
 								<fieldset>
-									<label for="email">Email Address</label>
-									<input type="text" name="email" id="email">
+									<label for="email">用户名</label>
+									<input type="text" name="username" id="email">
 								</fieldset>
 								<fieldset>
-									<label for="password">Password</label>
+									<label for="password">密码</label>
 									<input type="password" name="password" id="password">
 								</fieldset>
-								<input type="submit" id="login" value="Sign in">
+								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p>New User ? <a class="sign" href="account.html">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
+							<p>New User ? <a class="sign" href="account.html">注册</a> <span><a href="#">Forgot your password?</a></span></p>
 						</form>
 					</div>
 				</div>
 				<div class="header-right cart">
-					<a href="shoppingcart/listShop"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<a href="shoppingcart/listShop?userid=${userid }&cakeimg=${singlecake.listimg }cakeid=${singlecake.id }&cakename=${singlecake.gname}&spageIndex=1&userid=${user.id}&quantity=1"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
@@ -312,7 +312,7 @@
 								<div class="thumb-image"> <img src="${ctx }/static/images/${singlecake.img1}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
 							<li data-thumb="images/s2.png">
-								 <div class="thumb-image"> <img src="${ctx }/static/images/s1.png" data-imagezoom="true" class="img-responsive"> </div>
+								 <div class="thumb-image"> <img src="${ctx }/static/images/${singlecake.img2}" data-imagezoom="true" class="img-responsive"> </div>
 							</li>
 							<li data-thumb="images/s3.png">
 							   <div class="thumb-image"> <img src="${ctx }/static/images/${singlecake.img3}" data-imagezoom="true" class="img-responsive"> </div>
@@ -351,15 +351,35 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
+					<!--  form action="shoppingcart/addShop?cakeimg=${singlecake.listimg }&cakeid=${singlecake.id }&cakename=${singlecake.gname}&price=${singlecake.price}&userid=${userid }">
+					
+					<p class="qty"> 
+		                     <input type="button" value="-"/>
+		                     <input id="num" type="number" value="0" vane="quantity"/>
+		                     <input id="plus" type="button" value="+"/>
+                     </p>					
 					<div class="btn_form">
-						<a href="Cake/shoppingcart/addShop?cakeid=${singlecake.id }&cakename=${singlecake.gname}&price=${singlecake.price}" class="add-cart item_add">ADD TO CART</a>	
-					</div>
+						<input type="submit" name="加入购物车">	
+					</div>					
+						</form>
 					<div class="tag">
 						<p>Category : <a href="#"> Cakes</a></p>
 						<p>Tag : <a href="#"> Lorem ipsum </a></p>
 					</div>
-				</div>
+			</div-->
+		
+			<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">					
+					<div class="btn_form">
+						<a href="shoppingcart/addShop?cakeimg=${singlecake.listimg }&cakeid=${singlecake.id }&cakename=${singlecake.gname}&price=${singlecake.price}&userid=${userid }&quantity=1" class="add-cart item_add">ADD TO CART</a>	
+					</div>					
+					<div class="tag">
+						<p>Category : <a href="#"> Cakes</a></p>
+						<p>Tag : <a href="#"> Lorem ipsum </a></p>
+					</div>
+			</div>
+			
+			
+			
 				<div class="col-md-4 single-grid1">
 					<h2>Account</h2>
 					<ul>
@@ -464,7 +484,7 @@
 					<div class="product-info simpleCart_shelfItem">
 					
 						<div class="product-info-cust prt_name">
-							<h4>/${list.gname}</h4>								
+							<h4>/{list.gname}</h4>								
 							<span class="item_price">$2000</span>
 							<div class="ofr">
 							  <p class="pric1"><del>$2300</del></p>
@@ -564,4 +584,13 @@
 			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
 		</div>
 	</div>
+	</body>
+	<script>
+		var plus = document.getElementById('plus');
+		var num = document.getElementById('num');
+		plus.onclick = function(){
+			num.value = parseInt(num.value)+1;
+		}
+	</script>
+	
 </html>

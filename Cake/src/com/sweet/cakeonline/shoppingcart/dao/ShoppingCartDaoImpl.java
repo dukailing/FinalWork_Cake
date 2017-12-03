@@ -16,11 +16,11 @@ public class ShoppingCartDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
 	
-	public List<ShoppingCart> findAll(){
-		Query q=this.sessionFactory.getCurrentSession().createQuery("ShoppingCart");
+	public List<ShoppingCart> findAll(int p,int userid){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("from ShoppingCart where userid="+userid);
 
-		q.setFirstResult(0);
-		q.setMaxResults(9);
+		q.setFirstResult((p-1)*3);
+		q.setMaxResults(3);
 		
 		return q.list();
 	}
@@ -28,8 +28,15 @@ public class ShoppingCartDaoImpl {
 		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from ShoppingCart");
 		return Integer.parseInt(qc.toString());
 	} 	
+	//删除一个订单
 	public void deleteShop(ShoppingCart c) {
 		this.sessionFactory.getCurrentSession().delete(c);
+	}
+	//通过订单编号查找订单
+	public ShoppingCart findById(int id) {
+		ShoppingCart sh=this.sessionFactory.getCurrentSession().get(ShoppingCart.class,id);
+		return sh;
+		
 	}
 	public void updateShop(ShoppingCart c) {
 		this.sessionFactory.getCurrentSession().update(c);

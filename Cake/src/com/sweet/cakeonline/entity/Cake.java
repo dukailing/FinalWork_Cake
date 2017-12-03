@@ -18,7 +18,9 @@ public class Cake {
 	private String gname;
 	private String detail;
 	private float price;
-	
+	private int typeid;
+	private int stepid;
+	private int sizeid;
 	
 //	private CakeSize cakesize;
 //	private CakeStep cakestep;
@@ -83,6 +85,24 @@ public class Cake {
 	}
 	public void setImg3(String img3) {
 		this.img3 = img3;
+	}
+	public int getTypeid() {
+		return typeid;
+	}
+	public void setTypeid(int typeid) {
+		this.typeid = typeid;
+	}
+	public int getStepid() {
+		return stepid;
+	}
+	public void setStepid(int stepid) {
+		this.stepid = stepid;
+	}
+	public int getSizeid() {
+		return sizeid;
+	}
+	public void setSizeid(int sizeid) {
+		this.sizeid = sizeid;
 	}
 	
 ////	@ManyToOne          

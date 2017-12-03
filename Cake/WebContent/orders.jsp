@@ -323,9 +323,9 @@
 	<div class="cart-items">	
 	
 		<div class="container">
-			<h2>My Shopping Cart(3)</h2>
-		<c:forEach  var="shopcart" items="${shoppingcartlist }">
-		
+		<h2>My Shopping Cart($)</h2>
+		<c:forEach  var="orders" items="${orders }">
+			
 			<script>$(document).ready(function(c) {
 				$('.close1').on('click', function(c){
 					$('.cart-header').fadeOut('slow', function(c){
@@ -338,59 +338,39 @@
 				<div class="close1"></div>
 				<div class="cart-sec simpleCart_shelfItem">
 					<div class="cart-item cyc">
-						 <img src="${ctx }/static/images/${shopcart.cakeimg}" class="img-responsive" alt="">
+						 <img src="${ctx }/static/images/${orders.cakeimg}" class="img-responsive" alt="">
 					</div>
 					<div class="cart-item-info">
-						<h3><a href="#"> ${shopcart.cname } ${user.id }</a><span>Pickup time:</span></h3>
+						<h3><a href="#"> ${orders.cname } ${user.id }</a><span>Pickup time:</span></h3>
 						<ul class="qty">
-							<li><p>数量:</p></li>
-							<li><p>${shopcart.count }</p></li>
-							<!--li >	
-							<from action="shoppingcart/updateCount"><p class="qty"> 
-		                     <input type="button" value="-"/>
-		                     <input id="num" type="number" value="0" vane="quantity" name="quantity"/>
-		                     <input id="plus" type="button" value="+"/>
-                     </p>					
-					<div class="btn_form">
-						<input type="submit" name="修改数量" >
-					</div>					
-						</form>
-						</li>	
-						<from action="shoppingcart/updateCount"><p class="qty"> 
-		                    <input type="text" name="newCount" value="1">
-					<div class="btn_form">
-						<input type="submit" name="修改数量" >
-					</div>					
-						</form>
-						
-						</ul-->
+							<li><p>Min. order value:</p></li>
+							<li><p>FREE delivery</p></li>
+						</ul>
 						<div class="delivery">
-							<p>单价：${shopcart.price }</p>
-							<span><a href="order/deliverOrder?cakeimg=${shopcart.cakeimg }&cakeid=${shopcart.cid }&cakename=${shopcart.cname}&price=${shopcart.price}&userid=${userid }&quantity=1">提交订单</a></span>
-							<br/>
-							<span><a href="shoppingcart/deleteshop?ShopId=${shopcart.sid }">删除订单</a></span>
+							<p>总价：${orders.total }</p>
+							<span>Delivered in 1-1:30 hours</span>
 							<div class="clearfix"></div>
 						</div>	
 					</div>
-					<div class="clearfix"><span><a href="order/listOrders?userid=${shopcart.userid }&opageIndex=1">查看订单</a></span></div>
-					
+					<div class="clearfix"></div>
+					 <!-- a href="shoppingcart/deleteshop?ShopId=${orders.oid }">删除</a -->
 				</div>
 			</div>
 			</c:forEach>	
 			<div class="delivery">
 							<span><a href="/Cake/index.jsp">退出登录</a></span>
 							<div class="clearfix"></div>
-						</div>				
+						</div>			
 			</div>
 
 	<!--//checkout-->
 	
 		<!-- 分页-->
 			<ul class="foot">
-			<li><a href="shoppingCart/listShop?spageIndex=1">首页</a></li>
-			<li><a href="shoppingCart/listShop?spageIndex=${spageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
-			<li><a href="shoppingCart/listShop?spageIndex=${spageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
-			<li><a href="shoppingCart/listShopt?spageIndex=${spageCount}">页尾</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingCart/listShop?opageIndex=1">首页</a></li>
+			<li><a href="shoppingCart/listShop?opageIndex=${opageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingCart/listShop?opageIndex=${opageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingCart/listShopt?opageIndex=${opageCount}">页尾</a>&nbsp;&nbsp;</li>
 			</ul>	
 	<!--footer-->
 	<div class="footer">
@@ -452,11 +432,4 @@
 		</div>
 	</div>
 </body>
-<script>
-		var plus = document.getElementById('plus');
-		var num = document.getElementById('num');
-		plus.onclick = function(){
-			num.value = parseInt(num.value)+1;
-		}
-	</script>
 </html>

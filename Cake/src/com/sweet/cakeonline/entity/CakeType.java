@@ -1,6 +1,8 @@
 package com.sweet.cakeonline.entity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +22,8 @@ public class CakeType {
 	
 	private int typeid;
 	private String typename;
-	private Set CakeSet = new HashSet<Cake>();
+	//private Set CakeSet = new HashSet<Cake>();
+	private List<Cake> CakeList=new ArrayList<Cake>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -36,14 +40,25 @@ public class CakeType {
 	public void setTypename(String name) {
 		this.typename = name;
 	}
+//	@OneToMany(targetEntity=Cake.class, 
+//            cascade=CascadeType.ALL)
+//	@JoinColumn(name="typeid") 
+//	public Set getCakeSet() {
+//		return CakeSet;
+//	}
+//	public void setCakeSet(Set cakeSet) {
+//		CakeSet = cakeSet;
+//	}
 	@OneToMany(targetEntity=Cake.class, 
-            cascade=CascadeType.ALL)
+          cascade=CascadeType.ALL)
 	@JoinColumn(name="typeid") 
-	public Set getCakeSet() {
-		return CakeSet;
+	@OrderColumn(name="orderindex") 
+	public List<Cake> getCakeList() {
+		return CakeList;
 	}
-	public void setCakeSet(Set cakeSet) {
-		CakeSet = cakeSet;
+	public void setCakeList(List<Cake> cakeList) {
+		CakeList = cakeList;
 	}
+	
 	
 }

@@ -146,6 +146,13 @@
 			</c:if>
 			</ul>
 		</div>	
+			<!-- 分页-->
+			<ul class="foot">
+			<li><a href="cake/list?pageIndex=1">首页</a></li>
+			<li><a href="cake/list?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
+			</ul>
 		<!--pagetwo-->
 		<div id="pagetwo">
 			
@@ -176,15 +183,13 @@
 			<!--</c:forEach>-->
 			</table>
 			
-			<ul class="footer">
-			<c:if test="${pageIndex>1 }">
-			<li><a href="PageDivide?pageIndex=1">首页</a></li>
-			<li><a href="PageDivide?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li></c:if>
-			<c:if test="${pageIndex<pageCount }">
-			<li><a href="PageDivide?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
-			<li><a href="PageDivide?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
-			</c:if>
-				</ul>
+				<!-- 分页-->
+			<ul class="foot">
+			<li><a href="cake/list?pageIndex=1">首页</a></li>
+			<li><a href="cake/list?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
+			</ul>
 		</div>
 		
 		<!--pagethree-->
@@ -215,16 +220,13 @@
 			<!--</c:forEach>-->
 			</table>
 			
-		<ul class="footer">
-			<c:if test="${pageIndex>1 }">
-			<li><a href="PageDivide?pageIndex=1">首页</a></li>
-			<li><a href="PageDivide?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li></c:if>
-			<c:if test="${pageIndex<pageCount }">
-			<li><a href="PageDivide?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
-			<li><a href="PageDivide?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
-			</c:if>
-		</ul>
-		</div>
+		<!-- 分页-->
+			<ul class="foot">
+			<li><a href="cake/list?pageIndex=1">首页</a></li>
+			<li><a href="cake/list?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
+			<li><a href="cake/list?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
+			</ul>
 		
 	</div>
 </body>

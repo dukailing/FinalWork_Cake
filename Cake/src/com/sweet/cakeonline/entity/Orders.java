@@ -1,5 +1,6 @@
 package com.sweet.cakeonline.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,10 @@ public class Orders {
 	private int count;
 	private float total;
 	private Users users;
+	private String cname;
+	private String cakeimg;
+
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getOid() {
@@ -50,4 +55,18 @@ public class Orders {
 	public void setUsers(Users users) {
 		this.users = users;
 	}
+
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	public String getCakeimg() {
+		return cakeimg;
+	}
+	public void setCakeimg(String cakeimg) {
+		this.cakeimg = cakeimg;
+	}
+
 }

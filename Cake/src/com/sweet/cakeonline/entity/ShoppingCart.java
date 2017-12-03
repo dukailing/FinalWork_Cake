@@ -15,6 +15,10 @@ public class ShoppingCart {
 	private int cid;
 	private String cname;
 	private float price;
+	private int userid;
+	private String cakeimg;
+	private int count;
+
 
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -49,5 +53,30 @@ public float getPrice() {
 public void setPrice(float price) {
 	this.price = price;
 }
+
+public int getUserid() {
+	return userid;
+}
+
+public void setUserid(int userid) {
+	this.userid = userid;
+}
+
+public String getCakeimg() {
+	return cakeimg;
+}
+
+public void setCakeimg(String cakeimg) {
+	this.cakeimg = cakeimg;
+}
+
+public int getCount() {
+	return count;
+}
+
+public void setCount(int count) {
+	this.count = count;
+}
+
 
 }

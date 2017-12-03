@@ -82,7 +82,7 @@
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
+						<li><a href="/Cake/index.jsp" class="active">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Birthday<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-4">
@@ -283,7 +283,7 @@
 			</nav>
 			<div class="header-info">
 				<div class="header-right search-box">
-					<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<a href="shoppingcart/listShop?cakeid=${singlecake.id }&cakename=${singlecake.gname}&spageIndex=1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
 					<div class="search">
 						<form class="navbar-form">
 							<input type="text" class="form-control">
@@ -296,30 +296,30 @@
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 					<div id="loginBox">                
-						<form id="loginForm">
+						<form id="loginForm" action="user/userLogin">
 							<fieldset id="body">
 								<fieldset>
-									<label for="email">Email Address</label>
-									<input type="text" name="email" id="email">
+									<label for="email">用户名</label>
+									<input type="text" name="username" id="email">
 								</fieldset>
 								<fieldset>
-									<label for="password">Password</label>
+									<label for="password">密码</label>
 									<input type="password" name="password" id="password">
 								</fieldset>
-								<input type="submit" id="login" value="Sign in">
+								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p>New User ? <a class="sign" href="account.html">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
+							<p>New User ? <a class="sign" href="account.html">注册</a> <span><a href="#">Forgot your password?</a></span></p>
 						</form>
 					</div>
 				</div>
 				<div class="header-right cart">
-					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<a href="shoppingcart/listShop?userid=${userid }&cakeimg=${singlecake.listimg }cakeid=${singlecake.id }&cakename=${singlecake.gname}&spageIndex=1&userid=${user.id}&quantity=1"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+						<p><a href="shoppingcart/listShop" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -374,52 +374,53 @@
 			<div class="col-md-3 rsidebar span_1_of_left">
 				<section  class="sky-form">
 					<div class="product_right">
-						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
+						<h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>蛋糕分类</h4>
 						<div class="tab1">
 							<ul class="place">								
-								<li class="sort">Regular Cakes</li>
+								<li class="sort">蛋糕口味</li>
 								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>								
-							</ul>
-							<div class="clearfix"> </div>
-							<div class="single-bottom">						
-								<a href="#"><p>Cassata</p></a>
-								<a href="#"><p>Cheesecake</p></a>
-								<a href="#"><p>Coconut cake</p></a>
-								<a href="#"><p>Cupcake</p></a>
+							</ul>							
+								<div class="clearfix"> </div>
+								<c:forEach var="cakeType" items="${caketypelist}">	
+							<div class="single-bottom">												
+								<a href="cake/selectByType?typeid=${cakeType.typeid }&pageIndex=1"><p>${cakeType.typename }</p></a>
 						    </div>
-					    </div>						  
+						    	</c:forEach>
+					    </div>	
+					    	  
 						<div class="tab2">
 							<ul class="place">								
-								<li class="sort">Special Cakes</li>
+								<li class="sort">蛋糕尺寸</li>
 								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
 							</ul>
-							<div class="clearfix"> </div>
-							<div class="single-bottom">						
-								<a href="#"><p>Delicious Cakes</p></a>
-								<a href="#"><p>Gingerbread</p></a>									
+							<div class="clearfix"> </div>							
+							<div class="single-bottom">	
+							<c:forEach var="cakeSize" items="${cakesizelist}">						
+								<a href="cake/selectBySize?sizeid=${cakeSize.sizeid }&pageIndex=1"><p>${cakeSize.sizename }</p></a>
+								</c:forEach>								
 						    </div>
-					    </div>
+					    </div>				    
 						<div class="tab3">
 							<ul class="place">								
-								<li class="sort">Eggless Cake</li>
+								<li class="sort">奶油蛋糕</li>
 								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
 							</ul>
 							<div class="clearfix"> </div>
 							<div class="single-bottom">						
-								<a href="#"><p>Milk Cakes</p></a>
-								<a href="#"><p>Fruits Cakes</p></a>
+								<a href="cake/list?pageIndex=1"><p>奶油蛋糕</p></a>
 						    </div>
 					    </div>
 						<div class="tab4">
 							<ul class="place">								
-								<li class="sort">2-3 Tier Cakes</li>
+								<li class="sort">蛋糕层数</li>
 								<li class="by"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></li>
 							</ul>
 							<div class="clearfix"> </div>
-							<div class="single-bottom">						
-								<a href="#"><p>Twist 4 tier</p></a>
-								<a href="#"><p>Floral Tier</p></a>
-								<a href="#"><p>Double Heartshape</p></a>
+							<div class="single-bottom">	
+								<c:forEach var="cakeStep" items="${cakesteplist}">							
+								<a href="cake/selectByStep?stepid=${cakeStep.stepid }&pageIndex=1"><p>${cakeStep.stepname }</p></a>
+
+								</c:forEach>
 						    </div>
 					    </div>
 						<!--script-->
@@ -536,44 +537,13 @@
 		</div>
 	</div>
 	<!--//products-->
-		<!-- 分页
+		<!-- 分页-->
 			<ul class="foot">
-			<c:if test="${pageIndex>1 }">
 			<li><a href="cake/list?pageIndex=1">首页</a></li>
-			<li><a href="cake/list?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li></c:if>
-			<c:if test="${pageIndex<pageCount }">
+			<li><a href="cake/list?pageIndex=${pageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
 			<li><a href="cake/list?pageIndex=${pageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
 			<li><a href="cake/list?pageIndex=${pageCount}">页尾</a>&nbsp;&nbsp;</li>
-			</c:if>
-			</ul-->
-			<table  class="foot">
-				<tr>
-            <td colspan="6" align="center" bgcolor="#5BA8DE">共${pageCount}条记录 共${pageIndex}页 当前第${page.pageIndex}页<br>              
-                <a href="cake/list?pageIndex=${pageIndex }"><input type="button" name="fristPage" value="首页" /></a>
-                <c:choose>
-                  <c:when test="${pageIndex!=1}">
-                      <a href="cake/list?pageIndex=${pageIndex}"><input type="button" name="previousPage" value="上一页" /></a>
-                    
-                  </c:when>
-                  <c:otherwise>
-                    
-                      <input type="button" disabled="disabled" name="previousPage" value="上一页" />
-                    
-                  </c:otherwise>
-                </c:choose>
-                <c:choose>
-                  <c:when test="${pageIndex != pageCount}">
-                    <a href="cake/list?pageIndex=${pageIndex+1}"><input type="button" name="nextPage" value="下一页" /></a>
-                  </c:when>
-                  <c:otherwise>                   
-                      <input type="button" disabled="disabled" name="nextPage" value="下一页" />
-                    
-                  </c:otherwise>
-                </c:choose>
-                <a href="cake/list?pageIndex=${pageIndex}"><input type="button" name="lastPage" value="尾页" /></a>
-            </td>
-        </tr>
-			</table>
+			</ul>
 	<!--footer-->
 	<div class="footer">
 		<div class="container">

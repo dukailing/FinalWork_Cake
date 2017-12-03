@@ -16,20 +16,59 @@ public class CakeDaoImpl {
 
 	@Resource
 	private SessionFactory sessionFactory;
-	
-	public List<Cake> findAll(){
+	//分页查询所有蛋糕
+	public List<Cake> findAll(int p){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake");
 
-		q.setFirstResult(0);
+		q.setFirstResult((p-1)*9);
 		q.setMaxResults(9);
 		
 		return q.list();
+	}	
+	//通过种类分类查询
+	public List<Cake> findByType(int typeid){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where typeid="+typeid);
+		return q.list();
 	}
-	
+	//通过尺寸分类查询
+	public List<Cake> findBySize(int sizeid){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where sizeid="+sizeid);
+		return q.list();
+	}
+	//通过层数分类查询
+	public List<Cake> findByStep(int stepid){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where stepid="+stepid);
+		return q.list();
+	}
+	 
+	//查询所有蛋糕总数
 	public int findRowsCount(){
 		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake");
-		return Integer.parseInt(qc.toString());
+		Number number = (Number)qc.uniqueResult();
+		int count = number.intValue();
+		return count;
 	} 	
+	//查询属于某类的蛋糕总数
+	public int findTypeCakeRowsCount(int typeid){
+		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where typeid="+typeid);
+		Number number = (Number)qc.uniqueResult();
+		int count = number.intValue();
+		return count;
+	} 	
+	//查询属于某尺寸的蛋糕总数
+		public int findSizeCakeRowsCount(int sizeid){
+			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where sizeid="+sizeid);
+			Number number = (Number)qc.uniqueResult();
+			int count = number.intValue();
+			return count;
+		} 	
+		//查询属于某层数的蛋糕总数
+			public int findStepCakeRowsCount(int stepid){
+				Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where stepid="+stepid);
+				Number number = (Number)qc.uniqueResult();
+				int count = number.intValue();
+				return count;
+				} 	
 	public void deleteCake(Cake c) {
 		this.sessionFactory.getCurrentSession().delete(c);
 	}
@@ -39,28 +78,5 @@ public class CakeDaoImpl {
 	public void saveCake(Cake c) {
 		this.sessionFactory.getCurrentSession().save(c);
 	}
-	
-	/**
-     * 分页查询
-     * @param hql 查询的条件
-     * @param offset 开始记录
-     * @param length 一次查询几条记录
-     * @return 返回查询记录集合
-     */
-   @SuppressWarnings("unchecked")
-   public List<Cake> queryForPage(int offset, int length) {
-       // TODO Auto-generated method stub
-       List<Cake> entitylist=null;
-       try{
-           Query query = this.sessionFactory.getCurrentSession().createQuery("from Course");
-           query.setFirstResult(offset);
-           query.setMaxResults(length);
-           entitylist = query.list();
-           
-       }catch(RuntimeException re){
-           throw re;
-       }
-       
-       return entitylist;
-   }
+
 }

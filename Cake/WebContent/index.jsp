@@ -39,7 +39,7 @@
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.html" class="active">Home</a></li>
+						<li><a href="/Cake/index.jsp" class="active">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Birthday<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-4">
@@ -253,30 +253,30 @@
 				<div class="header-right login">
 					<a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 					<div id="loginBox">                
-						<form id="loginForm">
+						<form id="loginForm" action="user/userLogin">
 							<fieldset id="body">
 								<fieldset>
-									<label for="email">Email Address</label>
-									<input type="text" name="email" id="email">
+									<label for="email">用户名</label>
+									<input type="text" name="username" id="email">
 								</fieldset>
 								<fieldset>
-									<label for="password">Password</label>
+									<label for="password">密码</label>
 									<input type="password" name="password" id="password">
 								</fieldset>
-								<input type="submit" id="login" value="Sign in">
+								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p>New User ? <a class="sign" href="account.html">Sign Up</a> <span><a href="#">Forgot your password?</a></span></p>
+							<p>New User ? <a class="sign" href="account.html">注册</a> <span><a href="#">Forgot your password?</a></span></p>
 						</form>
 					</div>
 				</div>
-				<div class="header-right cart">
-					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+					<div class="header-right cart">
+					<a href="shoppingcart/listShop?userid=${userid }&cakeimg=${singlecake.listimg }cakeid=${singlecake.id }&cakename=${singlecake.gname}&spageIndex=1&userid=${user.id}&quantity=1"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+						<p><a href="shoppingcart/listShop" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -291,7 +291,7 @@
 		<div class="container">
 			<h2 class="hdng">Yummy <span>Cakes</span> for u</h2>
 			<p>Our best cakes make your day special</p>			
-			<a href="/Cake/cake/list">SHOP NOW</a>
+			<a href="/Cake/cake/list?pageIndex=1">SHOP NOW</a>
 			<div class="banner-text">			
 				<img src="${ctx }/static/images/2.png" alt=""/>	
 			</div>

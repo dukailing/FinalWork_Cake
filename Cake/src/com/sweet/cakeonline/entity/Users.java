@@ -23,6 +23,7 @@ public class Users {
 	private String  email;
 	private String address;
 	private Set shopSet = new HashSet<ShoppingCart>();
+	private Set OrderSet=new HashSet<Orders>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
@@ -68,6 +69,14 @@ public class Users {
 	}
 	public void setShopSet(Set shopSet) {
 		this.shopSet = shopSet;
+	}
+	@OneToMany(mappedBy="users",targetEntity=Orders.class, 
+            cascade=CascadeType.ALL)
+	public Set getOrderSet() {
+		return OrderSet;
+	}
+	public void setOrderSet(Set orderSet) {
+		OrderSet = orderSet;
 	}
 	
 

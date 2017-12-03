@@ -14,9 +14,13 @@ import com.sweet.cakeonline.orders.orderDao.OrderDaoImpl;
 public class OrderServiceImpl {
 	@Resource
 	private OrderDaoImpl orderDaoImpl;
-	//查找所有蛋糕
-	public List<Orders> listAll(){
-		return this.orderDaoImpl.findAll();
+	//查找某用户所有蛋糕订单
+	public List<Orders> listAll(int p,int userid){
+		return this.orderDaoImpl.findAll(p,userid);
+	}
+	//查找所有订单
+	public List<Orders> listAllOrders(int p){
+		return this.orderDaoImpl.findAllOrders(p);
 	}
 	//删除一个蛋糕
 	public void deleteOneOrder(Orders o) {

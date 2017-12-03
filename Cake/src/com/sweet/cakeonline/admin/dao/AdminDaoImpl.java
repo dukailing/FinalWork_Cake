@@ -13,7 +13,10 @@ public class AdminDaoImpl {
 	private SessionFactory sessionFactory;
 	//查找所有管理员
 		public List findAll(){
+			int p=0;
 				Query q=this.sessionFactory.getCurrentSession().createQuery("from Admin");
+				q.setFirstResult((p-1)*9);
+				q.setMaxResults(9);
 				return q.list();
 			}
 }

@@ -12,19 +12,23 @@ import com.sweet.cakeonline.entity.ShoppingCart;
 import com.sweet.cakeonline.shoppingcart.dao.ShoppingCartDaoImpl;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional(readOnly=false)
 public class ShoppingCartServiceImpl {
 	@Resource
 	private ShoppingCartDaoImpl shoppingCartDaoImpl;
 	   //查找所有购物车商品
-		public List<ShoppingCart> listAll(){
-			return this.shoppingCartDaoImpl.findAll();
+		public List<ShoppingCart> listAll(int p,int userid){
+			return this.shoppingCartDaoImpl.findAll(p,userid);
 		}
-		//删除一个蛋糕
+		//通过id查找订单
+		public ShoppingCart findById(int id) {
+			return this.shoppingCartDaoImpl.findById(id);
+		}
+		//删除一个蛋糕订单
 		public void deleteOneCake(ShoppingCart c) {
 			this.shoppingCartDaoImpl.deleteShop(c);
 		}
-		//更新一个蛋糕
+		//更新一个蛋糕订单
 		public void updateOneCake(ShoppingCart c) {
 			this.shoppingCartDaoImpl.updateShop(c);
 		}
