@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -23,15 +24,16 @@ public class ShoppingCartController {
 	private ShoppingCartServiceImpl shoppingCartServiceImpl; 
 	@Resource
 	private UserServiceImpl userServiceImpl;
-	//查找未提交订单
+	
+	//查找未提交订单,进入购物车页面
 	@RequestMapping("/listShop")
 	public void listShop(HttpSession session,@RequestParam("userid")int userid,
 			@RequestParam("spageIndex")String p,HttpServletResponse response) throws IOException {
 		List<ShoppingCart> shoppingCartList=this.shoppingCartServiceImpl.listAll(Integer.parseInt(p),userid);
 		session.setAttribute("shoppingcartlist", shoppingCartList);
-	
+         
 		//分页查询
-		   int pageCount=1;
+		   int pageCount=this.shoppingCartServiceImpl.findShopPageCount(userid);
 			 session.setAttribute("spageCount",pageCount);
 			int pageIndex=1;
 			 session.setAttribute("spageIndex",pageIndex);
@@ -39,10 +41,11 @@ public class ShoppingCartController {
 				 session.setAttribute("spageIndex",1);
 				 
 			 }else {
-				 session.setAttribute("spageIndex",pageIndex);
+				 session.setAttribute("spageIndex",Integer.parseInt(p));
 				 	}
 		response.sendRedirect("/Cake/shoppingCart.jsp");
 	}
+	
 	//加入购物车，存入数据库
 	@RequestMapping("/addShop")
 	public void addShop(@RequestParam("price")String price,
@@ -51,9 +54,16 @@ public class ShoppingCartController {
 			@RequestParam("cakename") String cname,
 			@RequestParam("userid") String userid,
 			@RequestParam("quantity")String count,
+			HttpSession session,
+			HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		ShoppingCart sh=new ShoppingCart();
-
+//		session.setAttribute("userid",null);
+//		String userid=request.getParameter("userid");
+//		session.setAttribute("userid", userid);
+//		if(userid.equals(null)) {
+//			response.sendRedirect("/Cake/userLogin.jsp");
+//		}
 		
 		sh.setCname(cname);
 		sh.setCid(id);
@@ -79,6 +89,8 @@ public class ShoppingCartController {
 		this.shoppingCartServiceImpl.updateOneCake(sh);
 		response.sendRedirect("/Cake/shoppingCart.jsp");
 	}
+	
+	//删除购物车某一订单
 	@RequestMapping("/deleteshop")
 	public void deleteShop(@RequestParam("ShopId")String shopid,HttpServletResponse response) throws IOException {
 		
@@ -88,4 +100,14 @@ public class ShoppingCartController {
 		
 	}
 	
+	//清空购物车
+	@RequestMapping("/deleteShoppingcart")
+	public void deleteShoppingcart(HttpServletResponse response,HttpSession session
+			,@RequestParam("userid")String userid) throws IOException {	
+		this.shoppingCartServiceImpl.deleteSoppingCart(Integer.parseInt(userid));
+		response.sendRedirect("/Cake/shoppingCart.jsp");
+	}
+		
 }
+	
+

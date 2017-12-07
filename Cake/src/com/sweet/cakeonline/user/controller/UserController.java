@@ -22,7 +22,7 @@ public class UserController {
 
 	@Resource
 	private UserServiceImpl userServiceImpl;
-	
+	//用户登录
 	@RequestMapping("/userLogin")
 	public void login(@RequestParam("username") String loginName,
 			@RequestParam("password") String password,
@@ -39,20 +39,15 @@ public class UserController {
                 break;
             }else {
             	session.setAttribute("isLogin", "false");
-            }
-            
+            }           
         }
         if(session.getAttribute("isLogin").equals("true")) {
         	  response.sendRedirect("/Cake/index.jsp");
         }else {
         	response.sendRedirect("/Cake/userLogin.jsp");
         }
-            
-            //	 response.sendRedirect("/Cake/userLogin.jsp");
-
-            
-
 	}
+	
 	
 	//用户注册
 	@RequestMapping("/userRegist")
@@ -60,7 +55,14 @@ public class UserController {
 			@RequestParam("password") String password,@RequestParam("confirmpassword") String confirmpassword,
 			@RequestParam("address") String address,@RequestParam("email") String email,
 			 HttpSession session,HttpServletResponse response) throws IOException {
-		if(password.equals(confirmpassword) ) {
+		List<Users> userList=this.userServiceImpl.listUser();
+		session.setAttribute("isRegisted", false);
+		 for(Users user:userList){  
+	            if(user.getName().equals(loginName)){  
+	            	session.setAttribute("isRegisted",true);
+	            	  break;
+	            }            }
+		 if(password.equals(confirmpassword)&&session.getAttribute("isRegisted").equals(false) ) {
 		Users u=new Users();
 		u.setAddress(address);
 		u.setEmail(email);
@@ -73,17 +75,57 @@ public class UserController {
 			response.sendRedirect("/Cake/userRegist.jsp");
 		}
 	}
-	//未用未知修改
-	@RequestMapping("/list")
-	public void list(HttpSession session,HttpServletResponse response) throws IOException{
-		List<Users> userList=this.userServiceImpl.listUser();
-		session.setAttribute("userList", userList);
-		response.sendRedirect("");
+	//更新用户信息
+	@RequestMapping("/updateUserInformation")
+	public void UpdateUserInformation(@RequestParam("username") String userName,
+			//@RequestParam("userid")String userid,
+			@RequestParam("password") String password,
+			@RequestParam("confirmpassword") String confirmpassword,
+			@RequestParam("address") String address,
+			@RequestParam("email") String email,
+			HttpSession session,HttpServletResponse response) throws IOException{
+		int userid=(int) session.getAttribute("userid");
+		if(password.equals(confirmpassword)) {
+	   // Users u=this.userServiceImpl.findUserById(userid);
+		this.userServiceImpl.updateUserInfo(userid,userName,password,email,address);
+		response.sendRedirect("/Cake/index.jsp");
+		}
 	}
+	//用户查询
+	@RequestMapping("/list")
+	public void list(HttpSession session,
+			HttpServletResponse response,
+			@RequestParam("aupageIndex")String up) throws IOException{
+		List<Users> userList=this.userServiceImpl.listUserByPage(Integer.parseInt(up));
+		
+		//分页
+		int pageCount=this.userServiceImpl.findUserPageCount();
+		session.setAttribute("aupageCount",pageCount);
+		int pageIndex=1;
+		 session.setAttribute("aupageIndex",pageIndex);
+		 if(0==pageIndex|| pageIndex<0) {
+			 session.setAttribute("aupageIndex",1);
+			 
+		 }else {
+			 session.setAttribute("aupageIndex",pageIndex);
+			 	}
+		 
+		session.setAttribute("userList", userList);
+		response.sendRedirect("/Cake/adminUsers.jsp");
+	}
+	//通过ID查询用户
 	@RequestMapping("/findByIdList")
 	public Users findById(@RequestParam("userid")String id,HttpServletResponse response) {
 		return this.userServiceImpl.findUserById(Integer.parseInt(id));
 	}
+	//删除一个用户
+		@RequestMapping("/deleteOneUser")
+		public void AdminDeleteUser(HttpServletResponse response,
+				HttpSession session,
+				@RequestParam("userid")String userid) throws IOException {
+			    this.userServiceImpl.deleteOneUser(Integer.parseInt(userid));;
+				response.sendRedirect("/Cake/adminUsers.jsp");
+			}
 	
 }
 

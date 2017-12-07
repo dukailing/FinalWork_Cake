@@ -26,18 +26,24 @@ public class CakeDaoImpl {
 		return q.list();
 	}	
 	//通过种类分类查询
-	public List<Cake> findByType(int typeid){
+	public List<Cake> findByType(int typeid,int p){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where typeid="+typeid);
+		q.setFirstResult((p-1)*9);
+		q.setMaxResults(9);
 		return q.list();
 	}
 	//通过尺寸分类查询
-	public List<Cake> findBySize(int sizeid){
+	public List<Cake> findBySize(int sizeid,int p){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where sizeid="+sizeid);
+		q.setFirstResult((p-1)*9);
+		q.setMaxResults(9);
 		return q.list();
 	}
 	//通过层数分类查询
-	public List<Cake> findByStep(int stepid){
+	public List<Cake> findByStep(int stepid,int p){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where stepid="+stepid);
+		q.setFirstResult((p-1)*9);
+		q.setMaxResults(9);
 		return q.list();
 	}
 	 
@@ -62,12 +68,12 @@ public class CakeDaoImpl {
 			int count = number.intValue();
 			return count;
 		} 	
-		//查询属于某层数的蛋糕总数
-			public int findStepCakeRowsCount(int stepid){
-				Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where stepid="+stepid);
-				Number number = (Number)qc.uniqueResult();
-				int count = number.intValue();
-				return count;
+	//查询属于某层数的蛋糕总数
+		public int findStepCakeRowsCount(int stepid){
+			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where stepid="+stepid);
+			Number number = (Number)qc.uniqueResult();
+			int count = number.intValue();
+			return count;
 				} 	
 	public void deleteCake(Cake c) {
 		this.sessionFactory.getCurrentSession().delete(c);

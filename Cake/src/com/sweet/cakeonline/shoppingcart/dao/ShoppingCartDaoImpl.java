@@ -24,10 +24,7 @@ public class ShoppingCartDaoImpl {
 		
 		return q.list();
 	}
-	public int findRowsCount(){
-		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from ShoppingCart");
-		return Integer.parseInt(qc.toString());
-	} 	
+
 	//删除一个订单
 	public void deleteShop(ShoppingCart c) {
 		this.sessionFactory.getCurrentSession().delete(c);
@@ -38,11 +35,24 @@ public class ShoppingCartDaoImpl {
 		return sh;
 		
 	}
+	//查询所有购物车订单总数
+		public int findShopCount(int userid){
+			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(sid) from ShoppingCart where userid="+userid);
+			Number number = (Number)qc.uniqueResult();
+			int count = number.intValue();
+			return count;
+		} 	
 	public void updateShop(ShoppingCart c) {
 		this.sessionFactory.getCurrentSession().update(c);
 	}
 	public void saveShop(ShoppingCart c) {
 		this.sessionFactory.getCurrentSession().save(c);
+	}
+	//清空购物车
+	public void deleteShoppingCart(int userid) {
+		Query q=this.sessionFactory.getCurrentSession().createQuery("delete from ShoppingCart where userid="+userid);
+		q.executeUpdate();
+
 	}
 
 }

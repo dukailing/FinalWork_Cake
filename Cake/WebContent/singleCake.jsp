@@ -62,45 +62,45 @@
 									<div class="col-sm-3">
 										<h4>By Relation</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Friend</a></li>
-											<li><a class="list" href="products.html">Lover</a></li>
-											<li><a class="list" href="products.html">Sister</a></li>
-											<li><a class="list" href="products.html">Brother</a></li>
-											<li><a class="list" href="products.html">Kids</a></li>
-											<li><a class="list" href="products.html">Parents</a></li>
+											<li><a class="list" href="#">Friend</a></li>
+											<li><a class="list" href="#">Lover</a></li>
+											<li><a class="list" href="#">Sister</a></li>
+											<li><a class="list" href="#">Brother</a></li>
+											<li><a class="list" href="#">Kids</a></li>
+											<li><a class="list" href="#">Parents</a></li>
 										</ul>
 									</div>																		
 									<div class="col-sm-3">
 										<h4>By Flavour</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Chocolate</a></li>
-											<li><a class="list" href="products.html">Mixed Fruit</a></li>
-											<li><a class="list" href="products.html">Butterscotch</a></li>
-											<li><a class="list" href="products.html">Strawberry</a></li>
-											<li><a class="list" href="products.html">Vanilla</a></li>
-											<li><a class="list" href="products.html">Eggless Cakes</a></li>
+											<li><a class="list" href="#">Chocolate</a></li>
+											<li><a class="list" href="#">Mixed Fruit</a></li>
+											<li><a class="list" href="#">Butterscotch</a></li>
+											<li><a class="list" href="#">Strawberry</a></li>
+											<li><a class="list" href="#">Vanilla</a></li>
+											<li><a class="list" href="#">Eggless Cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>By Theme</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Heart shaped</a></li>
-											<li><a class="list" href="products.html">Cartoon Cakes</a></li>
-											<li><a class="list" href="products.html">2-3 Tier Cakes</a></li>
-											<li><a class="list" href="products.html">Square shape</a></li>
-											<li><a class="list" href="products.html">Round shape</a></li>
-											<li><a class="list" href="products.html">Photo cakes</a></li>
+											<li><a class="list" href="#">Heart shaped</a></li>
+											<li><a class="list" href="#">Cartoon Cakes</a></li>
+											<li><a class="list" href="#">2-3 Tier Cakes</a></li>
+											<li><a class="list" href="#">Square shape</a></li>
+											<li><a class="list" href="#">Round shape</a></li>
+											<li><a class="list" href="#">Photo cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>Weight</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">1 kG</a></li>
-											<li><a class="list" href="products.html">1.5 kG</a></li>
-											<li><a class="list" href="products.html">2 kG</a></li>
-											<li><a class="list" href="products.html">3 kG</a></li>
-											<li><a class="list" href="products.html">4 kG</a></li>
-											<li><a class="list" href="products.html">Large</a></li>
+											<li><a class="list" href="#">1 kG</a></li>
+											<li><a class="list" href="#">1.5 kG</a></li>
+											<li><a class="list" href="#">2 kG</a></li>
+											<li><a class="list" href="#">3 kG</a></li>
+											<li><a class="list" href="#">4 kG</a></li>
+											<li><a class="list" href="#">Large</a></li>
 										</ul>
 									</div>
 								</div>
@@ -113,45 +113,45 @@
 									<div class="col-sm-3">
 										<h4>By Relation</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Friend</a></li>
-											<li><a class="list" href="products.html">Lover</a></li>
-											<li><a class="list" href="products.html">Sister</a></li>
-											<li><a class="list" href="products.html">Brother</a></li>
-											<li><a class="list" href="products.html">Kids</a></li>
-											<li><a class="list" href="products.html">Parents</a></li>
+											<li><a class="list" href="#">Friend</a></li>
+											<li><a class="list" href="#">Lover</a></li>
+											<li><a class="list" href="#">Sister</a></li>
+											<li><a class="list" href="#">Brother</a></li>
+											<li><a class="list" href="#">Kids</a></li>
+											<li><a class="list" href="#">Parents</a></li>
 										</ul>
 									</div>																		
 									<div class="col-sm-3">
 										<h4>By Flavour</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Chocolate</a></li>
-											<li><a class="list" href="products.html">Mixed Fruit</a></li>
-											<li><a class="list" href="products.html">Butterscotch</a></li>
-											<li><a class="list" href="products.html">Strawberry</a></li>
-											<li><a class="list" href="products.html">Vanilla</a></li>
-											<li><a class="list" href="products.html">Eggless Cakes</a></li>
+											<li><a class="list" href="#">Chocolate</a></li>
+											<li><a class="list" href="#">Mixed Fruit</a></li>
+											<li><a class="list" href="#">Butterscotch</a></li>
+											<li><a class="list" href="#">Strawberry</a></li>
+											<li><a class="list" href="#">Vanilla</a></li>
+											<li><a class="list" href="#">Eggless Cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>By Theme</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Heart shaped</a></li>
-											<li><a class="list" href="products.html">Cartoon Cakes</a></li>
-											<li><a class="list" href="products.html">2-3 Tier Cakes</a></li>
-											<li><a class="list" href="products.html">Square shape</a></li>
-											<li><a class="list" href="products.html">Round shape</a></li>
-											<li><a class="list" href="products.html">Photo cakes</a></li>
+											<li><a class="list" href="#">Heart shaped</a></li>
+											<li><a class="list" href="#">Cartoon Cakes</a></li>
+											<li><a class="list" href="#">2-3 Tier Cakes</a></li>
+											<li><a class="list" href="#">Square shape</a></li>
+											<li><a class="list" href="#">Round shape</a></li>
+											<li><a class="list" href="#">Photo cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>Weight</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">1 kG</a></li>
-											<li><a class="list" href="products.html">1.5 kG</a></li>
-											<li><a class="list" href="products.html">2 kG</a></li>
-											<li><a class="list" href="products.html">3 kG</a></li>
-											<li><a class="list" href="products.html">4 kG</a></li>
-											<li><a class="list" href="products.html">Large</a></li>
+											<li><a class="list" href="#">1 kG</a></li>
+											<li><a class="list" href="#">1.5 kG</a></li>
+											<li><a class="list" href="#">2 kG</a></li>
+											<li><a class="list" href="#">3 kG</a></li>
+											<li><a class="list" href="#">4 kG</a></li>
+											<li><a class="list" href="#">Large</a></li>
 										</ul>
 									</div>
 								</div>
@@ -164,45 +164,45 @@
 									<div class="col-sm-3">
 										<h4>By Relation</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Friend</a></li>
-											<li><a class="list" href="products.html">Lover</a></li>
-											<li><a class="list" href="products.html">Sister</a></li>
-											<li><a class="list" href="products.html">Brother</a></li>
-											<li><a class="list" href="products.html">Kids</a></li>
-											<li><a class="list" href="products.html">Parents</a></li>
+											<li><a class="list" href="#">Friend</a></li>
+											<li><a class="list" href="#">Lover</a></li>
+											<li><a class="list" href="#">Sister</a></li>
+											<li><a class="list" href="#">Brother</a></li>
+											<li><a class="list" href="#">Kids</a></li>
+											<li><a class="list" href="#">Parents</a></li>
 										</ul>
 									</div>																		
 									<div class="col-sm-3">
 										<h4>By Flavour</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Chocolate</a></li>
-											<li><a class="list" href="products.html">Mixed Fruit</a></li>
-											<li><a class="list" href="products.html">Butterscotch</a></li>
-											<li><a class="list" href="products.html">Strawberry</a></li>
-											<li><a class="list" href="products.html">Vanilla</a></li>
-											<li><a class="list" href="products.html">Eggless Cakes</a></li>
+											<li><a class="list" href="#">Chocolate</a></li>
+											<li><a class="list" href="#">Mixed Fruit</a></li>
+											<li><a class="list" href="#">Butterscotch</a></li>
+											<li><a class="list" href="#">Strawberry</a></li>
+											<li><a class="list" href="#">Vanilla</a></li>
+											<li><a class="list" href="#">Eggless Cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>By Theme</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Heart shaped</a></li>
-											<li><a class="list" href="products.html">Cartoon Cakes</a></li>
-											<li><a class="list" href="products.html">2-3 Tier Cakes</a></li>
-											<li><a class="list" href="products.html">Square shape</a></li>
-											<li><a class="list" href="products.html">Round shape</a></li>
-											<li><a class="list" href="products.html">Photo cakes</a></li>
+										<li><a class="list" href="#">Heart shaped</a></li>
+											<li><a class="list" href="#">Cartoon Cakes</a></li>
+											<li><a class="list" href="#">2-3 Tier Cakes</a></li>
+											<li><a class="list" href="#">Square shape</a></li>
+											<li><a class="list" href="#">Round shape</a></li>
+											<li><a class="list" href="#">Photo cakes</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3">
 										<h4>Weight</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">1 kG</a></li>
-											<li><a class="list" href="products.html">1.5 kG</a></li>
-											<li><a class="list" href="products.html">2 kG</a></li>
-											<li><a class="list" href="products.html">3 kG</a></li>
-											<li><a class="list" href="products.html">4 kG</a></li>
-											<li><a class="list" href="products.html">Large</a></li>
+											<li><a class="list" href="#">1 kG</a></li>
+											<li><a class="list" href="#">1.5 kG</a></li>
+											<li><a class="list" href="#">2 kG</a></li>
+											<li><a class="list" href="#">3 kG</a></li>
+											<li><a class="list" href="#">4 kG</a></li>
+											<li><a class="list" href="#">Large</a></li>
 										</ul>
 									</div>
 								</div>
@@ -215,34 +215,34 @@
 									<div class="col-sm-4">
 										<h4>By Relation</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Friend</a></li>
-											<li><a class="list" href="products.html">Lover</a></li>
-											<li><a class="list" href="products.html">Sister</a></li>
-											<li><a class="list" href="products.html">Brother</a></li>
-											<li><a class="list" href="products.html">Kids</a></li>
-											<li><a class="list" href="products.html">Parents</a></li>
+											<li><a class="list" href="#">Friend</a></li>
+											<li><a class="list" href="#">Lover</a></li>
+											<li><a class="list" href="#">Sister</a></li>
+											<li><a class="list" href="#">Brother</a></li>
+											<li><a class="list" href="#">Kids</a></li>
+											<li><a class="list" href="#">Parents</a></li>
 										</ul>
 									</div>																		
 									<div class="col-sm-4">
 										<h4>By Flavour</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Chocolate</a></li>
-											<li><a class="list" href="products.html">Mixed Fruit</a></li>
-											<li><a class="list" href="products.html">Butterscotch</a></li>
-											<li><a class="list" href="products.html">Strawberry</a></li>
-											<li><a class="list" href="products.html">Vanilla</a></li>
-											<li><a class="list" href="products.html">Eggless Cakes</a></li>
+											<li><a class="list" href="#">Chocolate</a></li>
+											<li><a class="list" href="#">Mixed Fruit</a></li>
+											<li><a class="list" href="#">Butterscotch</a></li>
+											<li><a class="list" href="#">Strawberry</a></li>
+											<li><a class="list" href="#">Vanilla</a></li>
+											<li><a class="list" href="#">Eggless Cakes</a></li>
 										</ul>
 									</div>								
 									<div class="col-sm-4">
 										<h4>Specials</h4>
 										<ul class="multi-column-dropdown">
-											<li><a class="list" href="products.html">Ice cream cake</a></li>
-											<li><a class="list" href="products.html">Swiss roll</a></li>
-											<li><a class="list" href="products.html">Ruske kape</a></li>
-											<li><a class="list" href="products.html">Cupcakes</a></li>
-											<li><a class="list" href="products.html">Muffin</a></li>
-											<li><a class="list" href="products.html">Merveilleux</a></li>										
+											<li><a class="list" href="#">Ice cream cake</a></li>
+											<li><a class="list" href="#">Swiss roll</a></li>
+											<li><a class="list" href="#">Ruske kape</a></li>
+											<li><a class="list" href="#">Cupcakes</a></li>
+											<li><a class="list" href="#">Muffin</a></li>
+											<li><a class="list" href="#">Merveilleux</a></li>										
 										</ul>
 									</div>
 								</div>
@@ -281,17 +281,17 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p>New User ? <a class="sign" href="account.html">注册</a> <span><a href="#">Forgot your password?</a></span></p>
+							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/userRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
-				<div class="header-right cart">
-					<a href="shoppingcart/listShop?userid=${userid }&cakeimg=${singlecake.listimg }cakeid=${singlecake.id }&cakename=${singlecake.gname}&spageIndex=1&userid=${user.id}&quantity=1"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+		<div class="header-right cart">
+					<a href="shoppingcart/listShop?userid=${userid }&spageIndex=1"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
-						<p><a href="shoppingcart/listShop" class="simpleCart_empty">Empty cart</a></p>
+						<p><a href="shoppingcart/deleteShoppingcart?userid=${userid }" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -568,10 +568,10 @@
 				<div class="col-md-3 footer-grid icons">
 					<h4>Connect with Us</h4>
 					<ul>
-						<li><a href="#"><img src="${ctx}/static/images/i1.png" alt=""/>Follow us on Facebook</a></li>
-						<li><a href="#"><img src="${ctx}/static/images/i2.png" alt=""/>Follow us on Twitter</a></li>
-						<li><a href="#"><img src="${ctx}/static/images/i3.png" alt=""/>Follow us on Google-plus</a></li>
-						<li><a href="#"><img src="${ctx}/static/images/i4.png" alt=""/>Follow us on Pinterest</a></li>
+						<li><a href="#"><img src="${ctx }/static/images/i1.png" alt=""/>Follow us on Facebook</a></li>
+						<li><a href="#"><img src="${ctx }/static/images/i2.png" alt=""/>Follow us on Twitter</a></li>
+						<li><a href="#"><img src="${ctx }/static/images/i3.png" alt=""/>Follow us on Google-plus</a></li>
+						<li><a href="#"><img src="${ctx }/static/images/i4.png" alt=""/>Follow us on Pinterest</a></li>
 					</div>
 				</div>
 				<div class="clearfix"></div>

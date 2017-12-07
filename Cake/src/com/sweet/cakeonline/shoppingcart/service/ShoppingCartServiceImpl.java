@@ -28,6 +28,20 @@ public class ShoppingCartServiceImpl {
 		public void deleteOneCake(ShoppingCart c) {
 			this.shoppingCartDaoImpl.deleteShop(c);
 		}
+		//清空购物车
+		public void deleteSoppingCart(int userid) {
+			this.shoppingCartDaoImpl.deleteShoppingCart(userid);
+		}
+		//查找购物车未提交订单页数
+		public int findShopPageCount(int userid) {
+			if((this.shoppingCartDaoImpl.findShopCount(userid))%3==0) {
+			return (int)(this.shoppingCartDaoImpl.findShopCount(userid)/3);
+			}else {
+			return (int)(this.shoppingCartDaoImpl.findShopCount(userid)/3+1);	
+			}
+		}
+		
+		
 		//更新一个蛋糕订单
 		public void updateOneCake(ShoppingCart c) {
 			this.shoppingCartDaoImpl.updateShop(c);
@@ -36,4 +50,5 @@ public class ShoppingCartServiceImpl {
 		public void addOneCake(ShoppingCart c) {
 			this.shoppingCartDaoImpl.saveShop(c);
 		}
+		
 }

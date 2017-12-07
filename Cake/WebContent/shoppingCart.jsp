@@ -299,17 +299,17 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p>New User ? <a class="sign" href="account.html">注册</a> <span><a href="#">Forgot your password?</a></span></p>
+							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/userRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
-				<div class="header-right cart">
+		<div class="header-right cart">
 					<a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
 					<div class="cart-box">
 						<h4><a href="checkout.html">
 							<span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>) 
 						</a></h4>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+						<p><a href="shoppingcart/deleteShoppingcart?userid=${userid }" class="simpleCart_empty">Empty cart</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -323,7 +323,7 @@
 	<div class="cart-items">	
 	
 		<div class="container">
-			<h2>My Shopping Cart(3)</h2>
+			<h2>购物车</h2>
 		<c:forEach  var="shopcart" items="${shoppingcartlist }">
 		
 			<script>$(document).ready(function(c) {
@@ -366,7 +366,7 @@
 						</ul-->
 						<div class="delivery">
 							<p>单价：${shopcart.price }</p>
-							<span><a href="order/deliverOrder?cakeimg=${shopcart.cakeimg }&cakeid=${shopcart.cid }&cakename=${shopcart.cname}&price=${shopcart.price}&userid=${userid }&quantity=1">提交订单</a></span>
+							<span><a href="order/deliverOrder?cakeimg=${shopcart.cakeimg }&cakeid=${shopcart.cid }&cakename=${shopcart.cname}&price=${shopcart.price}&userid=${userid }&sid=${shopcart.sid }&quantity=1">提交订单</a></span>
 							<br/>
 							<span><a href="shoppingcart/deleteshop?ShopId=${shopcart.sid }">删除订单</a></span>
 							<div class="clearfix"></div>
@@ -387,10 +387,10 @@
 	
 		<!-- 分页-->
 			<ul class="foot">
-			<li><a href="shoppingCart/listShop?spageIndex=1">首页</a></li>
-			<li><a href="shoppingCart/listShop?spageIndex=${spageIndex-1}">上一页</a>&nbsp;&nbsp;</li>
-			<li><a href="shoppingCart/listShop?spageIndex=${spageIndex+1}">下一页</a>&nbsp;&nbsp;</li>
-			<li><a href="shoppingCart/listShopt?spageIndex=${spageCount}">页尾</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingcart/listShop?spageIndex=1&userid=${userid }">首页</a></li>
+			<li><a href="shoppingcart/listShop?spageIndex=${spageIndex-1}&userid=${userid }">上一页</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingcart/listShop?spageIndex=${spageIndex+1}&userid=${userid }">下一页</a>&nbsp;&nbsp;</li>
+			<li><a href="shoppingcart/listShop?spageIndex=${spageCount}&userid=${userid }">页尾</a>&nbsp;&nbsp;</li>
 			</ul>	
 	<!--footer-->
 	<div class="footer">

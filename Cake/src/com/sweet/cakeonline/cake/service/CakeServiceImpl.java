@@ -22,16 +22,16 @@ public class CakeServiceImpl {
 		return this.cakeDaoImpl.findAll(p);
 	}
 	//分类查询蛋糕
-	public List<Cake> listByType(int typeid){
-		return this.cakeDaoImpl.findByType(typeid);
+	public List<Cake> listByType(int typeid,int p){
+		return this.cakeDaoImpl.findByType(typeid,p);
 	}
 	//分类查询蛋糕
-		public List<Cake> listBySize(int sizeid){
-			return this.cakeDaoImpl.findByType(sizeid);
+		public List<Cake> listBySize(int sizeid,int p){
+			return this.cakeDaoImpl.findByType(sizeid,p);
 		}
 	//分层数查询蛋糕
-	public List<Cake> listByStep(int stepid){
-			return this.cakeDaoImpl.findByType(stepid);
+	public List<Cake> listByStep(int stepid,int p){
+			return this.cakeDaoImpl.findByType(stepid,p);
 		}
 	//删除一个蛋糕
 	public void deleteOneCake(Cake c) {
@@ -48,7 +48,7 @@ public class CakeServiceImpl {
 
 	//得到总页码数
 	public int getPageCount() {
-		 return (int) Math.ceil((this.cakeDaoImpl.findRowsCount()/9));		
+		 return (int) Math.ceil((this.cakeDaoImpl.findRowsCount())/9);		
 	}
 	//得到通过分类查询页码总数
 	public int getTypeCakePageCount(int typeid) {

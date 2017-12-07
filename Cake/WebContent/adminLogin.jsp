@@ -63,12 +63,12 @@
 	<body>
 		<center>
 			<div class="center">
-				<h1>欢迎进入购物商城管理员系统</h1>
-				<form action="admin/adminLogin" method="get">
+				<h1>欢迎进入SWEET蛋糕店管理员系统</h1>
+				<form action="admin/adminLogin">
 					<table>
 						<tr>
 						<td class="firsttd">请输入用户名:</td>
-						<td><input class="inputstyle" type="text" name="username" value="admin" /></td>
+						<td><input class="inputstyle" type="text" name="adminname" value="admin" /></td>
 						</tr>
 						<tr>
 						<td class="firsttd">请输入密码:</td>

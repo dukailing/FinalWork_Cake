@@ -28,9 +28,22 @@ public class UserDaoImpl {
 		Users user=this.sessionFactory.getCurrentSession().get(Users.class, id);
 		return user;
 	}
+	//分页查找所有 用户
+	public List findAllByPage(int p){
+			Query q=this.sessionFactory.getCurrentSession().createQuery("from Users");
+			q.setFirstResult((p-1)*8);
+			q.setMaxResults(8);
+			return q.list();
+		}
+	//查找订单总数
+		public int findUserCount(){
+			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Users");
+			Number number = (Number)qc.uniqueResult();
+			int count = number.intValue();
+			return count;
+		} 	
 	//查找所有 用户
 	public List findAll(){
-//			return super.get(loginName);
 			Query q=this.sessionFactory.getCurrentSession().createQuery("from Users");
 			return q.list();
 		}
@@ -49,11 +62,22 @@ public class UserDaoImpl {
 		s.close();
 	}
 	//删除用户数据
-	public void deleteUser(Users u) {
-	     this.sessionFactory.getCurrentSession().delete(u);
+	public void deleteUser(int id) {
+		Query q=this.sessionFactory.getCurrentSession().createQuery("delete from Users where id="+id);
+		q.executeUpdate();
 		}
-	//更新用户数据
-	public void udateUser(Users u) {
-	     this.sessionFactory.getCurrentSession().update(u);
+	//通过id更新用户数据
+
+	public void udateUser(int userid,String name,String password,String email,String address) {
+//	   this.sessionFactory.getCurrentSession().update(u);
+	 Query q=this.sessionFactory.getCurrentSession().createQuery("update Users set name=:name,password=:password,"
+	 		+ "email=:email,address=:address where id=:id");
+		//		,password="+ password+",email="+email+",address="+address+"w
+		q.setParameter("name",name);
+		q.setParameter("password",password);
+		q.setParameter("email", email);
+		q.setParameter("address", address);
+		q.setParameter("id", userid);
+		q.executeUpdate();
 	    }
 }

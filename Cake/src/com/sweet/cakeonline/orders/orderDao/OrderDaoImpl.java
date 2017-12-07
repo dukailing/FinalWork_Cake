@@ -25,23 +25,30 @@ public class OrderDaoImpl {
 		
 		return q.list();
 	}
+	//查找订单总数
+	public int findOrderCount(int userid){
+		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(oid) from Orders where userid="+userid);
+		Number number = (Number)qc.uniqueResult();
+		int count = number.intValue();
+		return count;
+	} 	
 	//查找已提交的所有订单
-	public List<Orders> findAllOrders(int p){
-		Query q=this.sessionFactory.getCurrentSession().createQuery("from Orders");
-		//分页
-		q.setFirstResult((p-1)*8);
-		q.setMaxResults(8);
-		
-		return q.list();
-	}
-	//删除一个订单
-	public void deleteOrder(Orders o) {
-		this.sessionFactory.getCurrentSession().delete(o);
-	}
-	//更新一个订单
-	public void updateOrder(Orders o) {
-		this.sessionFactory.getCurrentSession().update(o);
-	}
+//	public List<Orders> findAllOrders(int p){
+//		Query q=this.sessionFactory.getCurrentSession().createQuery("from Orders");
+//		//分页
+//		q.setFirstResult((p-1)*8);
+//		q.setMaxResults(8);
+//		
+//		return q.list();
+//	}
+//	//删除一个订单
+//	public void deleteOrder(Orders o) {
+//		this.sessionFactory.getCurrentSession().delete(o);
+//	}
+//	//更新一个订单
+//	public void updateOrder(Orders o) {
+//		this.sessionFactory.getCurrentSession().update(o);
+//	}
 	//保存一个订单
 	public void saveOrder(Orders o) {
 		this.sessionFactory.getCurrentSession().save(o);
