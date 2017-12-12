@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>CakeIndex</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -266,7 +266,7 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/usserRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
+							<p><a class="sign" href="${ctx}/updateUserInformation.jsp">修改信息</a>&nbsp;<a class="sign" href="${ctx}/userRegist.jsp">注册</a> <a class="sign" href="${ctx}/userLogin.jsp">登录</a><a class="sign" href="${ctx}/adminLogin.jsp">管理</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
@@ -291,14 +291,12 @@
 		<div class="container">
 			<h2 class="hdng">Yummy <span>Cakes</span> for u</h2>
 			<p>Our best cakes make your day special</p>			
-			<a href="/Cake/cake/list?pageIndex=1">SHOP NOW</a>
+			<a href="${ctx}/cake/list?pageIndex=1">SHOP NOW</a>
 			<div class="banner-text">			
 				<img src="${ctx }/static/images/2.png" alt=""/>	
 			</div>
 		</div>
-	</div>		
-	
-		
+	</div>				
 	<!--//banner-->
 	<!--gallery-->
 	<div class="gallery">
@@ -625,7 +623,7 @@
 	<!--//footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2017.Company name All rights reserved.</p>
 		</div>
 	</div>
 </body>

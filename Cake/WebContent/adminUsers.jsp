@@ -1,4 +1,5 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,6 +18,7 @@
 		}
 		body{
 			width: 100%;
+			background:#faa;
 		}
 		.mybody{
 			width: 1200px;
@@ -100,6 +102,7 @@
 				<li><a href="admincake/listAdminCake?acpageIndex=1">蛋糕管理</a></li>
 				<li><a href="user/list?aupageIndex=1">用户管理</a></li>
 				<li><a href="adminorder/listAdminOrder?aopageIndex=1">订单管理</a></li>
+				<li><a href="${ctx}/adminLogin.jsp">退出登录</a></li>
 			</ul>		
 		</div>	
 		<div>			
@@ -114,7 +117,7 @@
 					<th>用户密码</th>
 					<th>用户地址</th>
 					<th>邮箱</th>
-					<th>delete</th>
+					<th>操作</th>
 				</tr>
             <c:forEach var="user" items="${userList }" varStatus="i">
 				<!-- 将book对象中的数据显示出来 -->
@@ -124,11 +127,20 @@
 					<td>${user.password }</td>
 					<td>${user.address }</td>
 					<td>${user.email }</td>
-					<td><a href="user/deleteOneUser?userid=${user.id }">delete</a></td>
+					<td><a href="user/deleteOneUser?userid=${user.id }">删除</a></td>
 				</tr>
 			<!--</c:forEach>-->
-			</table>
-			
+			<form action="user/updateUserData">
+	     	<tr>			
+			<td><input type="text" name="userid" value="" style="width:110px"></td>
+	        <td><input type="text" name="name" value=""  style="width:110px"></td>
+	        <td><input type="text" name="password" value="" style="width:110px"></td>
+	        <td><input type="text" name="address" value="" style="width:110px"></td>
+	        <td><input type="text" name="email" value="" style="width:110px"> </td>
+	        <td><input type="submit" value="修改"></td>			      
+	        </tr>
+	     </form>
+			</table>		
 				<!-- 分页-->
 			<ul class="footer">
 			<li><a href="user/list?aupageIndex=1">首页</a></li>

@@ -299,7 +299,7 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/userRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
+							<p><a class="sign" href="${ctx }/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="${ctx }/userRegist.jsp">注册</a> <a class="sign" href="${ctx }/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
@@ -372,12 +372,13 @@
 							<div class="clearfix"></div>
 						</div>	
 					</div>
-					<div class="clearfix"><span><a href="order/listOrders?userid=${shopcart.userid }&opageIndex=1">查看订单</a></span></div>
+					<div class="clearfix"></div>
 					
 				</div>
 			</div>
 			</c:forEach>	
 			<div class="delivery">
+			<div class="clearfix"><span><a href="order/listOrders?userid=${userid }&opageIndex=1">查看订单</a></span></div>
 							<span><a href="/Cake/index.jsp">退出登录</a></span>
 							<div class="clearfix"></div>
 						</div>				
@@ -448,7 +449,7 @@
 	<!--footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2017.Company name All rights reserved.</p>
 		</div>
 	</div>
 </body>

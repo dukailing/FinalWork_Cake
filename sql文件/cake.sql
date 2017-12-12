@@ -1,0 +1,13 @@
+INSERT INTO `cake` VALUES (1, '三层奶油粉红蛋糕', 'Cake cutting ', 2000, 1, 1, 3, 'm1.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (2, '三层巧克力蛋糕', '巧克力', 122, 1, 1, 1, 'm2.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (3, '两层小丑蛋糕', '小丑', 2000, 1, 1, 2, 'm3.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (4, '巧克力球蛋糕', '巧克力', 2000, 4, 1, 1, 'm4.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (5, '8村珊瑚蛋糕', '珊瑚', 2000, 5, 1, 1, 'm5.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (6, '15寸巧克力蛋糕', '巧克力', 2000, 4, 1, 1, 'm6.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (7, '10寸心形蛋糕', '心形', 2000, 2, 2, 1, 'm7.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (8, '12寸方形蛋糕', '方形', 2000, 1, 3, 1, 'm8.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (9, '15寸巧克力蛋糕', '巧克力', 2000, 4, 4, 1, 'm9.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (10, '15寸巧克力蛋糕', '巧克力', 2300, 4, 4, 1, 'g4.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (11, '三层奶油蛋糕', 'Cake cutting is one of the most beautiful thisg.', 1500, 1, 4, 3, 'g5.png', 's1.png', 's2.png', 's3.png');
+INSERT INTO `cake` VALUES (13, '', '', 11, 0, 0, 0, '', '', '', '');
+INSERT INTO `cake` VALUES (22, '', '', 22, 0, 0, 0, '', '', '', '');

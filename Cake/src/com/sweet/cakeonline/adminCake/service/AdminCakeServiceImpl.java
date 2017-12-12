@@ -15,28 +15,51 @@ import com.sweet.cakeonline.entity.Cake;
 public class AdminCakeServiceImpl {
 	@Resource
 	private AdminCakeDaoImpl adminCakeDaoImpl;
-	//查找所有蛋糕
-	public List<Cake> listAll(int p){
-		return this.adminCakeDaoImpl.findAll(p);
+	/**
+	 * 查找所有蛋糕
+	 * @param page
+	 * @return
+	 */
+	public List<Cake> listAll(int page){
+		return this.adminCakeDaoImpl.findAll(page);
 	}
-	//删除一个蛋糕
+	/**
+	 * 删除一个蛋糕
+	 * @param id
+	 */
 	public void deleteOneCake(int id) {
 		this.adminCakeDaoImpl.deleteCake(id);
 	}
-	//更新一个蛋糕
-	public void updateOneCake(Cake c) {
-		this.adminCakeDaoImpl.updateCake(c);
+	/**
+	 * 更新一个蛋糕
+	 * @param cake
+	 */
+	public void updateOneCake(Cake cake) {
+		this.adminCakeDaoImpl.updateCake(cake);
 	}
-	//增加蛋糕
-	public void addOneCake(Cake c) {
-		this.adminCakeDaoImpl.saveCake(c);
+	/**
+	 * 增加蛋糕
+	 * @param cake
+	 */
+	public void addOneCake(Cake cake) {
+		this.adminCakeDaoImpl.saveCake(cake);
 	}
-	//得到总页码数
+	/**
+	 * 通过id查询蛋糕
+	 * @return
+	 */
+	public Cake getCakeById(int id) {
+	return this.adminCakeDaoImpl.selectByCakeid(id);
+	}
+	/**
+	 * 得到总页码数
+	 * @return
+	 */
 	public int getPageCount() {
-		if((this.adminCakeDaoImpl.findRowsCount())%9==0) {
-			return (int)(this.adminCakeDaoImpl.findRowsCount()/9);
+        if((this.adminCakeDaoImpl.findRowsCount())%9==0) {
+		    return (int)(this.adminCakeDaoImpl.findRowsCount()/9);
 		}else {
-			return (int)(this.adminCakeDaoImpl.findRowsCount()/9+1);	
-			}	
+		    return (int)(this.adminCakeDaoImpl.findRowsCount()/9+1);	
+		}	
 	}
 }

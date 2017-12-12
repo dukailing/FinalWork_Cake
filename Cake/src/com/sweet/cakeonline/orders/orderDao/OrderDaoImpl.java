@@ -16,42 +16,36 @@ import com.sweet.cakeonline.entity.ShoppingCart;
 public class OrderDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
-	//查找属于某用户的所有已提交订单
-	public List<Orders> findAll(int p,int userid){
+	/**
+	 * 查找属于某用户的所有已提交订单
+	 * @param page
+	 * @param userid
+	 * @return
+	 */
+	public List<Orders> findAll(int page,int userid){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Orders where userid="+userid);
 		//分页
-		q.setFirstResult((p-1)*3);
-		q.setMaxResults(3);
-		
+		q.setFirstResult((page-1)*3);
+		q.setMaxResults(3);		
 		return q.list();
 	}
-	//查找订单总数
+	/**
+	 * 查找订单总数
+	 * @param userid
+	 * @return
+	 */
 	public int findOrderCount(int userid){
 		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(oid) from Orders where userid="+userid);
 		Number number = (Number)qc.uniqueResult();
 		int count = number.intValue();
 		return count;
 	} 	
-	//查找已提交的所有订单
-//	public List<Orders> findAllOrders(int p){
-//		Query q=this.sessionFactory.getCurrentSession().createQuery("from Orders");
-//		//分页
-//		q.setFirstResult((p-1)*8);
-//		q.setMaxResults(8);
-//		
-//		return q.list();
-//	}
-//	//删除一个订单
-//	public void deleteOrder(Orders o) {
-//		this.sessionFactory.getCurrentSession().delete(o);
-//	}
-//	//更新一个订单
-//	public void updateOrder(Orders o) {
-//		this.sessionFactory.getCurrentSession().update(o);
-//	}
-	//保存一个订单
-	public void saveOrder(Orders o) {
-		this.sessionFactory.getCurrentSession().save(o);
+	/**
+	 * 保存一个订单
+	 * @param order
+	 */
+	public void saveOrder(Orders order) {
+		this.sessionFactory.getCurrentSession().save(order);
 	}
 	
 }

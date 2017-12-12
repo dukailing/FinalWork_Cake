@@ -28,10 +28,21 @@ public class OrderController {
 	@Resource
 	private ShoppingCartServiceImpl shoppingCartServiceImpl;
 	
-	//提交订单进入数据库
+	/**
+	 * 提交订单进入数据库
+	 * @param price
+	 * @param id
+	 * @param shopid
+	 * @param cakeimg
+	 * @param cname
+	 * @param userid
+	 * @param count
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/deliverOrder")
 	public void DeliverOrder(@RequestParam("price")float price,
-			@RequestParam("cakeid")int id,
+			@RequestParam("cakeid")Integer id,
 			@RequestParam("sid")String shopid,
 			@RequestParam("cakeimg")String cakeimg,
 			@RequestParam("cakename") String cname,
@@ -44,16 +55,12 @@ public class OrderController {
 		order.setCid(id);
 		order.setCname(cname);
 		order.setCount(Integer.parseInt(count));
-		//int total=Integer.parseInt(count)*price;
-		//order.setCount(Integer.parseInt(count));
 		float total=(float)(Integer.parseInt(count))*price;
 		order.setTotal(total);
 		Users u=this.userServiceImpl.findUserById(Integer.parseInt(userid));
 		order.setUsers(u);
 	    order.setCakeimg(cakeimg);
-	    this.oderServiceImpl.addOneOrder(order);
-	 
-		
+	    this.oderServiceImpl.addOneOrder(order);	
 		//删除购物车中的订单
 		ShoppingCart sh=this.shoppingCartServiceImpl.findById(Integer.parseInt(shopid));
 		this.shoppingCartServiceImpl.deleteOneCake(sh);
@@ -61,26 +68,32 @@ public class OrderController {
 		response.sendRedirect("/Cake/shoppingCart.jsp");
 	}
 	
-	//查看已提交订单
+	/**
+	 * 查看已提交订单
+	 * @param userid
+	 * @param page
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/listOrders")
-		public void listOrders(HttpSession session,
+		public void listOrders(
 				@RequestParam("userid")int userid,
-				@RequestParam("opageIndex")String p,
+				@RequestParam("opageIndex")Integer page,
+				HttpSession session,
 				HttpServletResponse response) throws IOException {
-			List<Orders> orders=this.oderServiceImpl.listAll(Integer.parseInt(p), userid);
-			session.setAttribute("orders", orders);
-		
+			List<Orders> orders=this.oderServiceImpl.listAll(page, userid);
+			session.setAttribute("orders", orders);	
 			//分页查询
-			   int pageCount=this.oderServiceImpl.findOrderPageCount(userid);
-				 session.setAttribute("opageCount",pageCount);
-				int pageIndex=1;
-				 session.setAttribute("opageIndex",pageIndex);
-				 if(0==pageIndex|| pageIndex<0) {
-					 session.setAttribute("opageIndex",1);
-					 
-				 }else {
-					 session.setAttribute("opageIndex",Integer.parseInt(p));
-					 	}
+			int pageCount=this.oderServiceImpl.findOrderPageCount(userid);
+			session.setAttribute("opageCount",pageCount);
+			int pageIndex=1;
+			session.setAttribute("opageIndex",pageIndex);
+			if(0==pageIndex|| pageIndex<0) {
+				session.setAttribute("opageIndex",1);					 
+			}else {
+				session.setAttribute("opageIndex",page);
+			}
 			response.sendRedirect("/Cake/orders.jsp");
 		}
 }

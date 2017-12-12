@@ -16,15 +16,23 @@ import com.sweet.cakeonline.entity.CakeSize;
 public class CakeSizeDaoImpl {
 	@Resource
 	private SessionFactory sessionFactory;
+	/**
+	 * 查询所有蛋糕size
+	 * @return
+	 */
 	public List<CakeSize> findAll(){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from CakeSize");
 		return q.list();
 	}
-	//查询某蛋糕尺寸的蛋糕
-		public List<Cake> findBySize(int sizeid){
-			Query q=this.sessionFactory.getCurrentSession().createQuery("select CakeSet from CakeSize where sizeid="+sizeid);
-			return q.list();
-		}
+	/**
+	 * 查询某蛋糕尺寸的蛋糕
+	 * @param sizeid
+	 * @return
+	 */
+	public List<Cake> findBySize(int sizeid){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("select CakeSet from CakeSize where sizeid="+sizeid);
+		return q.list();
+	}
 	
 	
 }

@@ -1,5 +1,6 @@
 package com.sweet.cakeonline.cake.dao;
 
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,73 +17,113 @@ public class CakeDaoImpl {
 
 	@Resource
 	private SessionFactory sessionFactory;
-	//分页查询所有蛋糕
-	public List<Cake> findAll(int p){
+	/**
+	 * 分页查询所有蛋糕
+	 * @param page
+	 * @return
+	 */
+	public List<Cake> findAll(int page){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake");
-
-		q.setFirstResult((p-1)*9);
-		q.setMaxResults(9);
-		
+		q.setFirstResult((page-1)*9);
+		q.setMaxResults(9);		
 		return q.list();
 	}	
-	//通过种类分类查询
-	public List<Cake> findByType(int typeid,int p){
+	/**
+	 * 查询所有蛋糕
+	 * @return
+	 */
+	public List<Cake> findAllCake(){
+		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake");
+		return q.list();
+	}	
+	/**
+	 * 通过种类分类查询
+	 * @param typeid
+	 * @param page
+	 * @return
+	 */
+	public List<Cake> findByType(int typeid,int page){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where typeid="+typeid);
-		q.setFirstResult((p-1)*9);
+		q.setFirstResult((page-1)*9);
 		q.setMaxResults(9);
 		return q.list();
 	}
-	//通过尺寸分类查询
-	public List<Cake> findBySize(int sizeid,int p){
+	/**
+	 * 通过尺寸分类查询
+	 * @param sizeid
+	 * @param page
+	 * @return
+	 */	
+	public List<Cake> findBySize(int sizeid,int page){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where sizeid="+sizeid);
-		q.setFirstResult((p-1)*9);
+		q.setFirstResult((page-1)*9);
 		q.setMaxResults(9);
 		return q.list();
 	}
-	//通过层数分类查询
-	public List<Cake> findByStep(int stepid,int p){
+	/**
+	 * 通过层数分类查询
+	 * @param stepid
+	 * @param page
+	 * @return
+	 */
+	public List<Cake> findByStep(int stepid,int page){
 		Query q=this.sessionFactory.getCurrentSession().createQuery("from Cake where stepid="+stepid);
-		q.setFirstResult((p-1)*9);
+		q.setFirstResult((page-1)*9);
 		q.setMaxResults(9);
 		return q.list();
 	}
 	 
-	//查询所有蛋糕总数
+	/**
+	 * 查询所有蛋糕总数
+	 * @return
+	 */
 	public int findRowsCount(){
 		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake");
 		Number number = (Number)qc.uniqueResult();
 		int count = number.intValue();
 		return count;
 	} 	
-	//查询属于某类的蛋糕总数
+	/**
+	 * 查询属于某类的蛋糕总数
+	 * @param typeid
+	 * @return
+	 */
 	public int findTypeCakeRowsCount(int typeid){
 		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where typeid="+typeid);
 		Number number = (Number)qc.uniqueResult();
 		int count = number.intValue();
 		return count;
 	} 	
-	//查询属于某尺寸的蛋糕总数
+	/**
+	 * 查询属于某尺寸的蛋糕总数
+	 * @param sizeid
+	 * @return
+	 */
 		public int findSizeCakeRowsCount(int sizeid){
 			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where sizeid="+sizeid);
 			Number number = (Number)qc.uniqueResult();
 			int count = number.intValue();
 			return count;
 		} 	
-	//查询属于某层数的蛋糕总数
-		public int findStepCakeRowsCount(int stepid){
-			Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where stepid="+stepid);
-			Number number = (Number)qc.uniqueResult();
-			int count = number.intValue();
-			return count;
-				} 	
-	public void deleteCake(Cake c) {
-		this.sessionFactory.getCurrentSession().delete(c);
-	}
-	public void updateCake(Cake c) {
-		this.sessionFactory.getCurrentSession().update(c);
-	}
-	public void saveCake(Cake c) {
-		this.sessionFactory.getCurrentSession().save(c);
-	}
+	/**
+	 * 查询属于某层数的蛋糕总数
+	 * @param stepid
+	 * @return
+	 */
+	public int findStepCakeRowsCount(int stepid){
+		Query qc=this.sessionFactory.getCurrentSession().createQuery("select COUNT(id) from Cake where stepid="+stepid);
+		Number number = (Number)qc.uniqueResult();
+		int count = number.intValue();
+		return count;
+	} 	
+//	public void deleteCake(Cake c) {
+//		this.sessionFactory.getCurrentSession().delete(c);
+//	}
+//	public void updateCake(Cake c) {
+//		this.sessionFactory.getCurrentSession().update(c);
+//	}
+//	public void saveCake(Cake c) {
+//		this.sessionFactory.getCurrentSession().save(c);
+//	}
 
 }

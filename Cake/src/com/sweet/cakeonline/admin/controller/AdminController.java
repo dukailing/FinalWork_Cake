@@ -34,16 +34,21 @@ public class AdminController {
 	private OrderServiceImpl orderServiceImpl;
 	@Resource 
 	AdminCakeServiceImpl adminCakeServiceImpl;
-	
-	
-	//管理员登录后进入管理订单、用户、商品页面
+	/**
+	 * 管理员登录后进入管理订单、用户、商品页面
+	 * @param loginName
+	 * @param password
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/adminLogin")
 	public void login(@RequestParam("adminname") String loginName,
-			@RequestParam("password") String password,
-		    HttpSession session,HttpServletResponse response) throws IOException{
+		@RequestParam("password") String password,
+		HttpSession session,HttpServletResponse response) throws IOException{
         //查找所有管理员
 		List<Admin> adminList=this.adminServiceImpl.listAdmin();
-	//	 session.setAttribute("aisRegisted", true);
+        //session.setAttribute("aisRegisted", true);
 		//到集合中查找用户是否存在，此处用来模拟数据库验证  
         for(Admin admin:adminList){  
             if(admin.getAname().equals(loginName) && admin.getPassword().equals(password)){  

@@ -22,20 +22,33 @@ public class CakeTypeServiceImpl {
 	private CakeStepDaoImpl cakeStepDaoImpl;
 	@Resource
 	private CakeSizeDaoImpl cakeSizeDaoImpl;
-	//查找所有蛋糕种类
+	/**
+	 * 查找所有蛋糕种类
+	 * @return
+	 */
 	public List<CakeType> listCakeType(){
 		return this.cakeTypeDaoImpl.findAll();
 	}
 	
-	//查找所有蛋糕尺寸
+	/**
+	 * 查找所有蛋糕尺寸
+	 * @return
+	 */
 	public List<CakeSize> listCakeSize(){
 		return this.cakeSizeDaoImpl.findAll();
 	}
-	//查找所有蛋糕层数
+	/**
+	 * 查找所有蛋糕层数
+	 * @return
+	 */
 	public List<CakeStep> listCakeStep(){
 		return this.cakeStepDaoImpl.findAll();
 	}
-	//查找某种蛋糕
+	/**
+	 * 查找某种蛋糕
+	 * @param typeid
+	 * @return
+	 */
 	public List<Cake> listCakeByType(int typeid){
 		return this.cakeTypeDaoImpl.findByType(typeid);		
 	}

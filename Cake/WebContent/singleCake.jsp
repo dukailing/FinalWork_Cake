@@ -281,7 +281,7 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/userRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
+							<p><a class="sign" href="${ctx }/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="${ctx }/userRegist.jsp">注册</a> <a class="sign" href="${ctx }/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
@@ -319,9 +319,7 @@
 							</li> 
 						</ul>
 					</div>
-				</div>	
-				
-				
+				</div>				
 				<div class="col-md-4 single-grid simpleCart_shelfItem">		
 					<h3>${singlecake.gname }</h3>
 					<p>Cake cutting is one of the most wonderful ways of celebrating a special moment. What better way to celebrate than with a rich and mouth watering chocochips cake</p>
@@ -366,8 +364,7 @@
 						<p>Category : <a href="#"> Cakes</a></p>
 						<p>Tag : <a href="#"> Lorem ipsum </a></p>
 					</div>
-			</div-->
-		
+			</div-->	
 			<p class="qty"> Qty :  </p><input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">					
 					<div class="btn_form">
 						<a href="shoppingcart/addShop?cakeimg=${singlecake.listimg }&cakeid=${singlecake.id }&cakename=${singlecake.gname}&price=${singlecake.price}&userid=${userid }&quantity=1" class="add-cart item_add">ADD TO CART</a>	
@@ -376,10 +373,7 @@
 						<p>Category : <a href="#"> Cakes</a></p>
 						<p>Tag : <a href="#"> Lorem ipsum </a></p>
 					</div>
-			</div>
-			
-			
-			
+			</div>			
 				<div class="col-md-4 single-grid1">
 					<h2>Account</h2>
 					<ul>
@@ -581,7 +575,7 @@
 	<!--footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2017.Company name All rights reserved.</p>
 		</div>
 	</div>
 	</body>
@@ -591,6 +585,5 @@
 		plus.onclick = function(){
 			num.value = parseInt(num.value)+1;
 		}
-	</script>
-	
+	</script>	
 </html>

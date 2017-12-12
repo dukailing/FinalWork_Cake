@@ -17,35 +17,62 @@ public class UserServiceImpl {
 	@Resource
 	private UserDaoImpl userDaoImpl;
 	
-	//添加用户
-	public void addUser(Users u){
-		 userDaoImpl.saveUser(u.getName(),u.getPassword(),u.getAddress(),u.getEmail()  );
+	/**
+	 * 添加用户
+	 * @param user
+	 */
+	public void addUser(Users user){
+		 userDaoImpl.saveUser(user.getName(),user.getPassword(),user.getAddress(),user.getEmail()  );
 	}
-	//分页查找用户
-	public List<Users> listUserByPage(int p){
-	return userDaoImpl.findAllByPage(p);
+	/**
+	 * 分页查找用户
+	 * @param page
+	 * @return
+	 */
+	public List<Users> listUserByPage(int page){
+	    return userDaoImpl.findAllByPage(page);
 	}
-	//查找提交订单总数
-		public int findUserPageCount() {
-			if(userDaoImpl.findUserCount()%8==0) {
-				return (int)(userDaoImpl.findUserCount()/8);
-			}else {
-				return (int)(userDaoImpl.findUserCount()/8+1);	
-			}	
-		}
-	//查找用户
+	/**
+	 * 查找提交订单总数
+	 * @return
+	 */
+	public int findUserPageCount() {
+		if(userDaoImpl.findUserCount()%8==0) {
+			return (int)(userDaoImpl.findUserCount()/8);
+		}else {
+			return (int)(userDaoImpl.findUserCount()/8+1);	
+		}	
+	}
+	/**
+	 * 查找用户
+	 * @return
+	 */
 	public List<Users> listUser(){
-	return userDaoImpl.findAll();
+	    return userDaoImpl.findAll();
 	}
-	//删除一个用户
+	/**
+	 * 删除一个用户
+	 * @param id
+	 */
 	public void deleteOneUser(int id) {
 		this.userDaoImpl.deleteUser(id);;
 	}
-	//通过id查找用户
+	/**
+	 * 通过id查找用户
+	 * @param id
+	 * @return
+	 */
 	public Users findUserById(int id) {
 		return this.userDaoImpl.findById(id);
 	}
-	//更新用户信息
+	/**
+	 * 更新用户信息
+	 * @param userid
+	 * @param name
+	 * @param password
+	 * @param email
+	 * @param address
+	 */
 	public void updateUserInfo(int userid,String name,String password,String email,String address) {
 		this.userDaoImpl.udateUser(userid,name,password,email,address);
 	}

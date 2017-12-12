@@ -13,9 +13,11 @@ import com.sweet.cakeonline.entity.Users;
 public class AdminServiceImpl {
 	@Resource
 	private AdminDaoImpl adminDaoImpl;
-	//查找管理员
+	/**
+	 * 查找管理员
+	 * @return adminList
+	 */
 	public List<Admin> listAdmin(){
-
-	return adminDaoImpl.findAll();
+	    return adminDaoImpl.findAll();
 	}
 }

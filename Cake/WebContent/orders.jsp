@@ -67,7 +67,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1 class="navbar-brand"><a  href="index.html">Yummy</a></h1>
+					<h1 class="navbar-brand"><a  href="${ctx }/index.jsp">Yummy</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -299,7 +299,7 @@
 								<input type="submit" id="login" value="登录">
 								<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
 							</fieldset>
-							<p><a class="sign" href="/Cake/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="/Cake/userRegist.jsp">注册</a> <a class="sign" href="/Cake/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
+							<p><a class="sign" href="${ctx }/updateUserInformation.jsp">修改用户信息</a>&nbsp;<a class="sign" href="${ctx }/userRegist.jsp">注册</a> <a class="sign" href="${ctx }/userLogin.jsp">登录</a><span><a href="#">忘记密码？</a></span></p>
 						</form>
 					</div>
 				</div>
@@ -320,12 +320,10 @@
 	</div>
 	<!--//header-->
 	<!--cart-items-->
-	<div class="cart-items">	
-	
+	<div class="cart-items">		
 		<div class="container">
 		<h2>My Shopping Cart($)</h2>
-		<c:forEach  var="orders" items="${orders }">
-			
+		<c:forEach  var="orders" items="${orders }">			
 			<script>$(document).ready(function(c) {
 				$('.close1').on('click', function(c){
 					$('.cart-header').fadeOut('slow', function(c){
@@ -362,9 +360,7 @@
 							<div class="clearfix"></div>
 						</div>			
 			</div>
-
-	<!--//checkout-->
-	
+	<!--//checkout-->	
 		<!-- 分页-->
 			<ul class="foot">
 			<li><a href="order/listOrders?opageIndex=1&userid=${userid }">首页</a></li>
@@ -428,7 +424,7 @@
 	<!--footer-->
 	<div class="footer-bottom">
 		<div class="container">
-			<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			<p>Copyright &copy; 2017.Company name All rights reserved.</p>
 		</div>
 	</div>
 </body>

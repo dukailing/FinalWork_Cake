@@ -1,0 +1,10 @@
+INSERT INTO `users` VALUES (1, '赵一', '123', '123456788@qq.com', '石家庄');
+INSERT INTO `users` VALUES (2, '浅二', '1234', '1928764832@qq.com', '石家庄');
+INSERT INTO `users` VALUES (3, '孙珊', '12345', 'ncljahq@163.com', '美国');
+INSERT INTO `users` VALUES (4, '李思', '123456', 'jkaniua@163.com', '石家庄');
+INSERT INTO `users` VALUES (5, '周五', '123', '123984930@qq.com', '石家庄');
+INSERT INTO `users` VALUES (6, '吴奇', '1234', '973498178@qq.com', '呼和浩特');
+INSERT INTO `users` VALUES (7, '吴琦', '1234', '32914787@qq.com', '石家庄');
+INSERT INTO `users` VALUES (8, '郑芭', '12345', '140849018@qq.com', '内蒙古');
+INSERT INTO `users` VALUES (18, '凤九', '143256', '1892746738@qq.com', '北京朝阳区');
+INSERT INTO `users` VALUES (20, '卫子夫', '123456', '19839274@163.com', '美国');

@@ -1,4 +1,5 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,6 +18,7 @@
 		}
 		body{
 			width: 100%;
+			background:#faa
 		}
 		.mybody{
 			width: 1200px;
@@ -101,6 +103,7 @@
 				<li><a href="admincake/listAdminCake?acpageIndex=1">蛋糕管理</a></li>
 				<li><a href="user/list?aupageIndex=1">用户管理</a></li>
 				<li><a href="adminorder/listAdminOrder?aopageIndex=1">订单管理</a></li>
+				<li><a href="${ctx}/adminLogin.jsp">退出登录</a></li>
 			</ul>
 			
 			<!-- 使用table来显示数据 -->
@@ -117,7 +120,7 @@
 					<th>蛋糕图片一</th>
 					<th>蛋糕图片二</th>
 					<th>蛋糕图片三</th>
-					<th></th>
+					<th>管理</th>
 				</tr>
 		<c:forEach items="${admincakelist}" var="cake" varStatus="i">
 				<!-- 将cake对象中的数据显示出来 -->
@@ -130,11 +133,23 @@
 					<td>${cake.img1 }</td>
 					<td>${cake.img2 }</td>
 					<td>${cake.img3 }</td>
-					<td><a href="admincake/deleteOneCake?cakeid=${cake.id}&acpageIndex=1">delete </a></td>
+					<td><a href="admincake/deleteOneCake?cakeid=${cake.id}&acpageIndex=1">删除 </a></td>
 				</tr>
 			</c:forEach>
-			</table>
-		
+			<form action="admincake/updateOneCake">
+	     	<tr>			
+			<td><input type="text" name="cakeid" value="" style="width:80px"></td>
+	        <td><input type="text" name="gname" value=""  style="width:110px"></td>
+	        <td><input type="text" name="detail" value="" style="width:100px"></td>
+	        <td><input type="text" name="price" value="" style="width:80px"></td>
+	        <td><input type="text" name="listimg" value="" style="width:100px"> </td>
+	        <td><input type="text" name="img1" value="" style="width:100px"></td>
+	        <td><input type="text" name="img2" value="" style="width:100px"></td>
+	        <td><input type="text" name="img3" value="" style="width:100px"></td>
+	        <td><input type="submit" value="修改/增加" style="width:80px color:0000ff"></td>			      
+	        </tr>
+	     </form>
+			</table>					
 		</div>	
 			<!-- 分页-->
 			<ul class="footer">

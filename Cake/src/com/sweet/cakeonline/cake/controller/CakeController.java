@@ -34,162 +34,166 @@ public class CakeController {
 	@Resource
 	private CakeTypeServiceImpl cakeTypeServiceImpl;
 	
-    //转到蛋糕表单页面
+	/**
+	 * 转到蛋糕表单页面
+	 * @param page
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/list")
-	  public void listcake(HttpSession session,@RequestParam("pageIndex")String p,
-			  HttpServletResponse response) throws IOException {
-		List<Cake> list=this.cakeServiceImpl.listAll(Integer.parseInt(p));
-	     session.setAttribute("list", list);
-	     //分页
+	public void listCake(@RequestParam(value="pageIndex",defaultValue="1")Integer page,
+        HttpSession session,
+		HttpServletResponse response) throws IOException {
+		List<Cake> list=this.cakeServiceImpl.listAll(page);
+	    session.setAttribute("list", list);
+	    //分页
 		int pageCount=this.cakeServiceImpl.getPageCount();
-	    // int pageCount=2;
-		 session.setAttribute("pageCount",pageCount);
+		session.setAttribute("pageCount",pageCount);
 		int pageIndex=1;
-		 session.setAttribute("pageIndex",pageIndex);
-		 if(0==pageIndex|| pageIndex<0) {
-			 session.setAttribute("pageIndex",1);
-			 
-		 }else {
-			 session.setAttribute("pageIndex",pageIndex);}		 
-		 
+		session.setAttribute("pageIndex",pageIndex);
+		if(0==pageIndex|| pageIndex<0) {
+		    session.setAttribute("pageIndex",1);	 
+		}else {
+		    session.setAttribute("pageIndex",pageIndex);
+		}		 		 
 		//分类
 		List <CakeType> caketypelist=this.cakeTypeServiceImpl.listCakeType();
-		 session.setAttribute("caketypelist",caketypelist);
+		session.setAttribute("caketypelist",caketypelist);
 		List <CakeSize> cakesizelist=this.cakeTypeServiceImpl.listCakeSize();
-		 session.setAttribute("cakesizelist",cakesizelist);
+		session.setAttribute("cakesizelist",cakesizelist);
 		List <CakeStep> cakesteplist=this.cakeTypeServiceImpl.listCakeStep();
-		 session.setAttribute("cakesteplist",cakesteplist);		
-		  response.sendRedirect("/Cake/list.jsp");
+		session.setAttribute("cakesteplist",cakesteplist);		
+		response.sendRedirect("/Cake/list.jsp");
 	}
 	
-	
-	//通过蛋糕种类分类查询
+	/**
+	 * 通过蛋糕种类分类查询
+	 * @param typeid
+	 * @param page
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
 	@RequestMapping("/selectByType")
-	public void selectByClass(@RequestParam("typeid")String typeid,
+	public void selectByClass(
+			@RequestParam("typeid")String typeid,		
+			@RequestParam(value="pageIndex",defaultValue="1")Integer page,
+            HttpSession session,
+			HttpServletResponse response) throws IOException {	
+        List<Cake> CakeByTypeList=this.cakeServiceImpl.listByType(Integer.parseInt(typeid),page);
+	    session.setAttribute("list", CakeByTypeList);	   	     
+	    //分页
+		int pageCount=this.cakeServiceImpl.getTypeCakePageCount(Integer.parseInt(typeid));
+		session.setAttribute("pageCount",pageCount);
+		int pageIndex=1;
+		session.setAttribute("pageIndex",pageIndex);
+		if(0==pageIndex|| pageIndex<0) {
+			session.setAttribute("pageIndex",1);			 
+		}else {
+		    session.setAttribute("pageIndex",pageIndex);}			 
+			response.sendRedirect("/Cake/list.jsp");
+	}
+	
+	/**
+	 * 通过蛋糕尺寸分类查询
+	 * @param sizeid
+	 * @param session
+	 * @param response
+	 * @param page
+	 * @throws IOException
+	 */
+	@RequestMapping("/selectBySize")
+	public void selectBySize(@RequestParam("sizeid")String sizeid,
 			HttpSession session,
 			HttpServletResponse response,
-			@RequestParam("pageIndex")String p) throws IOException {	
-		List<Cake> CakeByTypeList=this.cakeServiceImpl.listByType(Integer.parseInt(typeid),Integer.parseInt(p));
-	     session.setAttribute("list", CakeByTypeList);
-	   	     
-	     //分页
-		int pageCount=this.cakeServiceImpl.getTypeCakePageCount(Integer.parseInt(typeid));
-			 session.setAttribute("pageCount",pageCount);
-			int pageIndex=1;
-			 session.setAttribute("pageIndex",pageIndex);
-			 if(0==pageIndex|| pageIndex<0) {
-				 session.setAttribute("pageIndex",1);
-				 
-			 }else {
-				 session.setAttribute("pageIndex",pageIndex);}	
-			 
-			  response.sendRedirect("/Cake/list.jsp");
-	}
-	
-	
-	//通过蛋糕尺寸分类查询
-		@RequestMapping("/selectBySize")
-		public void selectBySize(@RequestParam("sizeid")String sizeid,
-				HttpSession session,
-				HttpServletResponse response,
-				@RequestParam("pageIndex")String p) throws IOException {
-			
-			List<Cake> CakeBySizeList=this.cakeServiceImpl.listBySize(Integer.parseInt(sizeid),Integer.parseInt(p));
-		     session.setAttribute("list", CakeBySizeList);		   
-		     
-		  //分页
-			int pageCount=this.cakeServiceImpl.getSizeCakePageCount(Integer.parseInt(sizeid));
-			session.setAttribute("pageCount",pageCount);
-			int pageIndex=1;
-				session.setAttribute("pageIndex",pageIndex);
-				 if(0==pageIndex|| pageIndex<0) {
-					 session.setAttribute("pageIndex",1);					 
-				 }else {
-					 session.setAttribute("pageIndex",pageIndex);}	
-				 
-				  response.sendRedirect("/Cake/list.jsp");
+			@RequestParam(value="pageIndex",defaultValue="1")Integer page) throws IOException {			
+		List<Cake> CakeBySizeList=this.cakeServiceImpl.listBySize(Integer.parseInt(sizeid),page);
+		session.setAttribute("list", CakeBySizeList);		   	     
+		//分页
+		int pageCount=this.cakeServiceImpl.getSizeCakePageCount(Integer.parseInt(sizeid));
+		session.setAttribute("pageCount",pageCount);
+		int pageIndex=1;
+		session.setAttribute("pageIndex",pageIndex);
+		if(0==pageIndex|| pageIndex<0) {
+			session.setAttribute("pageIndex",1);					 
+		}else {
+			session.setAttribute("pageIndex",pageIndex);}					 
+			response.sendRedirect("/Cake/list.jsp");
 		}
-		
-		//通过蛋糕层数分类查询
-				@RequestMapping("/selectByStep")
-				public void selectByStep(@RequestParam("stepid")String stepid,
-						HttpSession session,
-						HttpServletResponse response,
-						@RequestParam("pageIndex")String p) throws IOException {					
-					List<Cake> CakeByStepList=this.cakeServiceImpl.listByStep((Integer.parseInt(stepid)),Integer.parseInt(p));
-				     session.setAttribute("list", CakeByStepList);				     
-				     //分页
-					int pageCount=this.cakeServiceImpl.getStepCakePageCount(Integer.parseInt(stepid));
-				//	 int pageCount=2;
-						 session.setAttribute("pageCount",pageCount);
-						int pageIndex=1;
-						 session.setAttribute("pageIndex",pageIndex);
-						 if(0==pageIndex|| pageIndex<0) {
-							 session.setAttribute("pageIndex",1);							 
-						 }else {
-							 session.setAttribute("pageIndex",Integer.parseInt(p));}	
-						 
-						  response.sendRedirect("/Cake/list.jsp");
-				}
-	
-	//转到蛋糕详情页面
-	@RequestMapping("singleCake")
-	  public void listsinglecake(@RequestParam(value="cakeid")String cakeId,HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
-	       //@RequestParam(value="cakeid")String cakeId,d
-		//response.sendRedirect("singleCake");
+	/**
+	 * 通过蛋糕层数分类查询
+	 * @param stepid
+	 * @param page
+	 * @param session
+	 * @param response
+	 * @throws IOException
+	 */
+    @RequestMapping("/selectByStep")
+	public void selectByStep(
+			@RequestParam("stepid")Integer stepid,
+			@RequestParam(value="pageIndex",defaultValue="1")Integer page,
+			HttpSession session,
+			HttpServletResponse response) throws IOException {					
+		List<Cake> CakeByStepList=this.cakeServiceImpl.listByStep(stepid,page);
+		session.setAttribute("list", CakeByStepList);				     
+		//分页
+		int pageCount=this.cakeServiceImpl.getStepCakePageCount(stepid);
+		session.setAttribute("pageCount",pageCount);
+		int pageIndex=1;
+		session.setAttribute("pageIndex",pageIndex);
+		if(0==pageIndex|| pageIndex<0) {
+		    session.setAttribute("pageIndex",1);							 
+		}else {
+		    session.setAttribute("pageIndex",page);
+		}							 
+		response.sendRedirect("/Cake/list.jsp");
+	}
+    /**
+     * 转到蛋糕详情页面
+     * @param cakeId
+     * @param session
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+
+    @RequestMapping("singleCake")
+	public void listsinglecake(@RequestParam(value="cakeid")Integer cakeId,
+			HttpSession session,
+			HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		List list=(List) session.getAttribute("list");
-		Cake cake=(Cake) list.get(Integer.parseInt(cakeId));
+		Cake cake=(Cake) list.get(cakeId);
 		session.setAttribute("singlecake", cake);
 		session.setAttribute("list", list);
-		  response.sendRedirect("/Cake/singleCake.jsp");
+		response.sendRedirect("/Cake/singleCake.jsp");  
 	}
-	
-	//分类分页查询
-//	@RequestMapping("/speciallist")
-//	  public void listspecialcake(@RequestParam("typeid")String typeid,
-//			  HttpSession session,
-//			  @RequestParam("spageIndex")String p,
-//			  HttpServletResponse response) throws IOException {
-//		List<Cake> listByType=this.cakeTypeServiceImpl.listCakeByType(Integer.parseInt(typeid));
-//		session.setAttribute("list", listByType);
-//		//分页查询
-//		   int pageCount=2;
-//			 session.setAttribute("spageCount",pageCount);
-//			int pageIndex=1;
-//			 session.setAttribute("spageIndex",pageIndex);
-//			 if(0==pageIndex|| pageIndex<0) {
-//				 session.setAttribute("spageIndex",1);
-//				 
-//			 }else {
-//				 session.setAttribute("spageIndex",pageIndex);
-//				 	}
-//			 response.sendRedirect("/Cake/list.jsp");
-//	}
-	
-	//搜索查询蛋糕
+    /**
+     * 搜索查询蛋糕  
+     * @throws IOException
+     */
 	@RequestMapping("/searchList")
-	public void SearchCakeList(@RequestParam("search")String search,
+	public void SearchCakeList(
+			@RequestParam("search")String search,
 			HttpServletResponse response,HttpSession session
-			//,@RequestParam("pageIndex")String p
 			) throws IOException {
 		List<Cake> list=this.cakeServiceImpl.listAll(1);
 		List<Cake> searchList=new ArrayList<Cake>();
 		for(Cake c:list) {
-			if(c.getGname().contains(search)) {
+		    if(c.getGname().contains(search)) {
 			searchList.add(c);
 			}
 		}
-		  //分页
+		//分页
 		int pageCount=(int)(searchList.size()/9);
-	//	 int pageCount=2;
-			 session.setAttribute("pageCount",pageCount);
-			int pageIndex=1;
-			 session.setAttribute("pageIndex",pageIndex);
-			 if(0==pageIndex|| pageIndex<0) {
-				 session.setAttribute("pageIndex",1);							 
-			 }else {
-				 session.setAttribute("pageIndex",pageIndex);}	
-		
+		session.setAttribute("pageCount",pageCount);
+		int pageIndex=1;
+		session.setAttribute("pageIndex",pageIndex);
+		if(0==pageIndex|| pageIndex<0) {
+            session.setAttribute("pageIndex",1);							 
+		}else {
+			session.setAttribute("pageIndex",pageIndex);}		
 		session.setAttribute("list", searchList);
 		response.sendRedirect("/Cake/list.jsp");
 	}

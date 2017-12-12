@@ -1,4 +1,5 @@
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,6 +18,7 @@
 		}
 		body{
 			width: 100%;
+			background:#faa;
 		}
 		.mybody{
 			width: 1200px;
@@ -99,10 +101,9 @@
 				<li><a href="admincake/listAdminCake?acpageIndex=1">蛋糕管理</a></li>
 				<li><a href="user/list?aupageIndex=1">用户管理</a></li>
 				<li><a href="adminorder/listAdminOrder?aopageIndex=1">订单管理</a></li>
+				<li><a href="${ctx}/adminLogin.jsp">退出登录</a></li>
 			</ul>		
-	
-		<div>
-			
+		<div>		
 			<!-- 使用table来显示数据 -->
 			<table>
 				<tr>
@@ -114,8 +115,8 @@
 					<th>蛋糕名称</th>
 					<th>数量</th>
 					<th>总价</th>
-					<th></th>
-					<th></th>
+					<th>用户编号</th>
+					<th>操作</th>
 				</tr>
 	   <c:forEach var="order" items="${adminorderlist}">
 				<!-- 将cake对象中的数据显示出来 -->
@@ -125,13 +126,23 @@
 				    <td>${order.cname }</td>
 					<td>${order.count }</td>
 					<td>${order.total }</td>
-
-					<td>修改</td>
+					<td>${order.oid}</td>
 					<td><a href="adminorder/deleteOneOrder?orderid=${order.oid }&aopageIndex=1">删除</a></td>
 				</tr>
 			<!--</c:forEach>-->
-			</table>
-			
+			<!--增加/修改-->
+			<form action="adminorder/saveOneOrders">
+	     	<tr>			
+			<td><input type="text" name="oid" value="" style="width:110px"></td>
+	        <td><input type="text" name="cid" value=""  style="width:110px"></td>
+	        <td><input type="text" name="cname" value="" style="width:110px"></td>
+	        <td><input type="text" name="count" value="" style="width:110px"></td>
+	        <td><input type="text" name="total" value="" style="width:110px"></td>
+	         <td><input type="text" name="userid" value="" style="width:110px"></td>
+	        <td><input type="submit" value="修改/增加"></td>			      
+	        </tr>
+	     </form>
+			</table>			
 		<!-- 分页-->
 			<!-- 分页-->
 			<ul class="footer">
