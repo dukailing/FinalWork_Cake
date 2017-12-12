@@ -30,9 +30,7 @@
 		}
 		.tableone{
 		    width:1000px;
-		}
-		
-		
+		}		
 		td,th{
 			border: 1px #ddd solid;
 			padding: 8px;
@@ -41,8 +39,7 @@
 			font-size: 18px;
 		}
 		a{
-			text-decoration: none;
-			
+			text-decoration: none;			
 		}
 		.nav li a:link{
 			color: #005599;
@@ -52,8 +49,7 @@
 		}
 		.nav li a:hover{
 			color: #fff;
-			background: #005599;
-			
+			background: #005599;			
 		}
 		.nav li a:active{
 			color: #fff;

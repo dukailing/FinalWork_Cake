@@ -20,8 +20,7 @@
 			background:#faa
 		}
 	a{
-			text-decoration: none;
-			
+			text-decoration: none;		
 		}
 		.nav li a:link{
 			color: #005599;
@@ -31,8 +30,7 @@
 		}
 		.nav li a:hover{
 			color: #fff;
-			background: #005599;
-			
+			background: #005599;		
 		}
 		.nav li a:active{
 			color: #fff;

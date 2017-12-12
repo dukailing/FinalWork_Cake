@@ -30,9 +30,7 @@
 		}
 		.tableone{
 		    width:1000px;
-		}
-		
-		
+		}				
 		td,th{
 			border: 1px #ddd solid;
 			padding: 8px;

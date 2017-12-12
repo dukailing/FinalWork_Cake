@@ -11,13 +11,11 @@
 			margin: 0 auto;
 			padding: 0;
 			text-align: center;
-			background:#faa;
-			
+			background:#faa;		
 		}
 		.center{
 			background:#2A2A2A;
-			width: 520px;
-			
+			width: 520px;		
 			color: #fff;
 			border: 5px #2A2A2A solid;
 			border-radius:15px ;
