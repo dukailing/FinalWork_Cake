@@ -49,7 +49,7 @@ public class AdminController {
         //查找所有管理员
 		List<Admin> adminList=this.adminServiceImpl.listAdmin();
         //session.setAttribute("aisRegisted", true);
-		//到集合中查找用户是否存在，此处用来模拟数据库验证  
+		//到集合中查找用户是否存在
         for(Admin admin:adminList){  
             if(admin.getAname().equals(loginName) && admin.getPassword().equals(password)){  
                session.setAttribute("adminuser", admin); 

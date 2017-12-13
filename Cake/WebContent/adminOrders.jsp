@@ -129,7 +129,8 @@
 				</tr>
 			<!--</c:forEach>-->
 			<!--增加/修改-->
-			<form action="adminorder/saveOneOrders">
+			<!--<form action="adminorder/saveOneOrders" >-->
+			<form >
 	     	<tr>			
 			<td><input type="text" name="oid" value="" style="width:110px"></td>
 	        <td><input type="text" name="cid" value=""  style="width:110px"></td>
