@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="keywords" content="奶油，巧克力，三层，水果蛋糕">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
