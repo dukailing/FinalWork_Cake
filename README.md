@@ -70,42 +70,73 @@
 8.进行功能实现
 //////////////////////////////////////////////////////////////////////////
 作业中练习（未做）
+
 spring与hibernate的实体bean的注解配置（共六种情况）
+
 用户登录表userLogin
+
 账号loginname
+
 密码password
+
 用户真实信息userInfo
+
     loginname  realNama
+    
 角色表
+
 权限表
+
 角色权限分配表（多对多）
+
 ///////////////////////////////////////////////////////////////////////
+
 11/22
+
 收获：在配置好文件后配置类的注解，报错404原因：注解错误
+
 -->在spring-bean中配置sessionfactory可用bonecp连接池，替换属性和jar包
+
 ///////////////////////////////////////////////////////////////////////
+
 11/23
+
 绝对路径：/项目名/类名
+
 添加语句
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core " prefix="c"%>
+
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 使用${ctx}/文件夹/文件
 
 用户登录：怎样通过姓名查找用户、用assigned生成id方法？？
+
 ctx报错：多写一层文件夹名
+
 bonecp报错
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
 11/25
+
 登录逻辑完成，但仅登录一次，第二次404？？？
+
 错误Unknown column 'users0_.sddress' in 'field list'
+
 解决办法：Users类中的注解错误
+
 
 	<c:forEach items="${list }" var="cake">
 		${cake.gname }<br>
 	</c:forEach>
 
 问题：
+
 注册页面跳转不成功Don't know how to iterate over supplied "items" in &lt;forEach&gt;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 11-25至11-30使用SpringMVC进行基本功能的实现并完成。 
  
